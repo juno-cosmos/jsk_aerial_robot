@@ -1,35 +1,104 @@
 servo_controller:
-# TODO: 2種類のservoの設定を混在させる必要がある
+  # TODO paramsを合わせる必要あり
 
-  joints:
+  male_roll:
     angle_sgn: 1
     angle_scale: 0.00076699
     zero_point_offset: 2047
     torque_scale: 0.03483 # convert to N*m
 
-    # for simulation
     simulation:
       pid: {p: 50.0, i: 0.01, d: 2.0}
-      init_value: 1.57
+      init_value: 0.0
       type: effort_controllers/JointPositionController
 
-    # should be in order in terms of kinematics model
-    # i.e. joint1 -> jointN
     controller1:
       id: 0
-      name: joint1
-      angle_sgn: -1
-      #angle_max: 1.58 # you can specify for each controller
-
-      #simulaton:  # you can specify for each controller
-        #type: effort_controllers/JointPositionController
-        #pid: {p: 50.0, i: 0.01, d: 2.0}
-        #init_value: 0
-
+      name: male_roll1
     controller2:
-      id: 1
-      name: joint2
+      id: 4
+      name: male_roll2
     controller3:
+      id: 8
+      name: male_roll3
+    controller4:
+      id: 12
+      name: male_roll4
+
+  female_roll:
+    angle_sgn: 1
+    angle_scale: 0.00076699
+    zero_point_offset: 2047
+    torque_scale: 0.03483 # convert to N*m
+
+    simulation:
+      pid: {p: 50.0, i: 0.01, d: 2.0}
+      init_value: 0.0
+      type: effort_controllers/JointPositionController
+
+    controller1:
       id: 2
-      name: joint3
+      name: female_roll1
+    controller2:
+      id: 6
+      name: female_roll2
+    controller3:
+      id: 10
+      name: female_roll3
+    controller4:
+      id: 14
+      name: female_roll4
+
+  joint_yaw:
+    angle_sgn: 1
+    angle_scale: 0.00076699
+    zero_point_offset: 2047
+    torque_scale: 0.03483 # convert to N*m
+
+    simulation:
+      pid: {p: 50.0, i: 0.01, d: 2.0}
+      init_value: 0.0
+      type: effort_controllers/JointPositionController
+
+    controller1:
+      id: 3
+      name: joint_yaw1
+      simulation:
+        init_value: 1.57
+    controller2:
+      id: 7
+      name: joint_yaw2
+      simulation:
+        init_value: 1.57
+    controller3:
+      id: 11
+      name: joint_yaw3
+      simulation:
+        init_value: 1.57
+
+  gimbal_pitch:
+    no_real_state: false # true if there is no servo state from real machine
+    # ctrl_pub_topic: hoge # other topic than the common one:  "servo/target_states", if necessary
+
+    angle_sgn: 1
+    angle_scale: 0.001534
+    zero_point_offset: 2047
+
+    simulation:
+      pid: {p: 50.0, i: 0.01, d: 1.0, i_clamp_min: -3.0, i_clamp_max: 3.0}
+      init_value: 0.0
+      type: effort_controllers/JointPositionController
+
+    controller1:
+      id: 1
+      name: gimbal_pitch1
+    controller2:
+      id: 5
+      name: gimbal_pitch2
+    controller3:
+      id: 9
+      name: gimbal_pitch3
+    controller4:
+      id: 13
+      name: gimbal_pitch4
 
