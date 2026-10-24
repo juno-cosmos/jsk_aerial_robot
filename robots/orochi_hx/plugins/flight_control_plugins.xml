@@ -1,0 +1,5 @@
+<library path="lib/liborochi_hx_controller_pluginlib">
+  <class name="aerial_robot_control/orochi_hx_controller" type="aerial_robot_control::OrochiHxController" base_class_type="aerial_robot_control::ControlBase">
+    <description>Controller for orochi_hx</description>
+  </class>
+</library>
