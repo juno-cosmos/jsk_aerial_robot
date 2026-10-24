@@ -1,0 +1,309 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<robot
+  xmlns:xacro="http://www.ros.org/wiki/xacro" name="orochi_hx_link">
+
+  <xacro:macro name="orochi_hx_link" params="links self rotor_direction">
+
+    <!-- male -->
+    <link name="male${self}">
+      <xacro:if value="${self == 1}">
+        <inertial>
+          <origin xyz="-0.052739878482681 -9.34675991357908e-07 -0.0296530174438008" rpy="0.0 -0.0 0.0"/>
+          <mass value="0.232368340978789"/>
+          <inertia ixx="0.000189201405336057" ixy="5.52592371497219e-09" ixz="3.65224196392575e-05" iyy="0.000272447160085503" iyz="-6.69151656946131e-10" izz="0.000168362228995049"/>
+        </inertial>
+        <visual>
+          <geometry>
+            <mesh filename="package://orochi_hx/urdf/mesh/male_head.dae"/>
+          </geometry>
+          <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
+        </visual>
+        <collision>
+          <geometry>
+            <mesh filename="package://orochi_hx/urdf/mesh/male_head_collision.stl"/>
+          </geometry>
+          <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
+        </collision>
+      </xacro:if>
+      <xacro:unless value="${self == 1}">
+        <inertial>
+          <origin xyz="0.480848878478817 -6.37525632024318e-07 -0.00526321596246022" rpy="0.0 -0.0 0.0"/>
+          <mass value="0.340677045513285"/>
+          <inertia ixx="0.000657095261464978" ixy="6.19678576389826e-09" ixz="8.97340693867749e-05" iyy="0.000757386523911567" iyz="4.62802062269456e-09" izz="0.000209861587892199"/>
+        </inertial>
+        <visual>
+          <geometry>
+            <mesh filename="package://orochi_hx/urdf/mesh/male.dae"/>
+          </geometry>
+          <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
+        </visual>
+        <collision>
+          <geometry>
+            <mesh filename="package://orochi_hx/urdf/mesh/male2_collision.stl"/>
+          </geometry>
+          <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
+        </collision>
+      </xacro:unless>
+    </link>
+    <xacro:friction link="male${self}"/>
+    <xacro:damping_factor link="male${self}"/>
+
+    <!-- body -->
+    <link name="body${self}">
+      <inertial>
+        <origin xyz="0.249646267950928 0.0246488631309276 -0.00232944891667237" rpy="0.0 -0.0 0.0"/>
+        <mass value="0.419895456587595"/>
+        <inertia ixx="0.00520647615398925" ixy="-0.000107815705486367" ixz="-1.81339714467847e-06" iyy="0.00514529649185074" iyz="2.39989744251452e-05" izz="0.010151021448606"/>
+      </inertial>
+      <visual>
+        <geometry>
+          <mesh filename="package://orochi_hx/urdf/mesh/body.dae"/>
+        </geometry>
+        <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
+      </visual>
+      <collision>
+        <geometry>
+          <mesh filename="package://orochi_hx/urdf/mesh/body_collision.stl"/>
+        </geometry>
+        <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
+      </collision>
+    </link>
+    <xacro:friction link="body${self}"/>
+    <xacro:damping_factor link="body${self}"/>
+
+    <!-- duct -->
+    <link name="duct${self}">
+      <inertial>
+        <origin xyz="0.251457476616615 -0.00142751192883745 0.0011709194386648" rpy="0.0 -0.0 0.0"/>
+        <mass value="0.351486633634277"/>
+        <inertia ixx="0.0020630707445772" ixy="-2.92498532740653e-07" ixz="3.28976580216749e-07" iyy="0.00102307853147382" iyz="1.58803650253004e-07" izz="0.00281360888889416"/>
+      </inertial>
+      <visual>
+        <geometry>
+          <mesh filename="package://orochi_hx/urdf/mesh/duct.dae"/>
+        </geometry>
+        <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
+      </visual>
+      <collision>
+        <geometry>
+          <mesh filename="package://orochi_hx/urdf/mesh/duct_collision.stl"/>
+        </geometry>
+        <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
+      </collision>
+    </link>
+    <!-- <xacro:friction link="duct${self}"/> -->
+    <xacro:damping_factor link="duct${self}"/>
+
+    <!-- female -->
+    <link name="female${self}">
+      <xacro:if value="${self == 2}">
+        <inertial>
+          <origin xyz="1.12698918290577 0.00619207162129304 -0.0202466021464508" rpy="0.0 -0.0 0.0"/>
+          <mass value="0.362731408934528"/>
+          <inertia ixx="0.000436668316629998" ixy="-8.91149536419333e-06" ixz="-0.000166184432843873" iyy="0.000716425694126863" iyz="8.2600244063983e-06" izz="0.000482080031496602"/>
+        </inertial>
+        <visual>
+          <geometry>
+            <mesh filename="package://orochi_hx/urdf/meshes/female_with_circuits.dae"/>
+          </geometry>
+          <material name="__unnamed_material_10"/>
+          <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
+        </visual>
+        <collision>
+          <geometry>
+            <mesh filename="package://orochi_hx/urdf/meshes/female_with_circuits_collision.stl"/>
+          </geometry>
+          <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
+        </collision>
+      </xacro:if>
+      <xacro:unless value="${self == 2}">
+        <inertial>
+          <origin xyz="0.597343994892686 2.04473894948366e-05 -0.0246395348050693" rpy="0.0 -0.0 0.0"/>
+          <mass value="0.264982417970611"/>
+          <inertia ixx="0.000287291406649856" ixy="-3.80521104155563e-07" ixz="-0.000168019190894103" iyy="0.000596449506923116" iyz="3.358784385771e-07" izz="0.00040264407172139"/>
+        </inertial>
+        <visual>
+          <geometry>
+            <mesh filename="package://orochi_hx/urdf/mesh/female.dae"/>
+          </geometry>
+          <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
+        </visual>
+        <collision>
+          <geometry>
+            <mesh filename="package://orochi_hx/urdf/mesh/female_collision.stl"/>
+          </geometry>
+          <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
+        </collision>
+      </xacro:unless>
+    </link>
+    <xacro:friction link="female${self}"/>
+    <xacro:damping_factor link="female${self}"/>
+
+    <!-- rotor -->
+    <joint name="rotor${self}" type="continuous">
+      <limit effort="100.0" lower="${min_force}" upper="${max_force}" velocity="0.5"/>
+      <parent link="duct${self}"/>
+      <child link="thrust${self}"/>
+      <axis xyz="0. 0. ${rotor_direction}"/>
+      <origin xyz="0.0 0.0 0.024" rpy="0.0 -0.0 0.0"/>
+    </joint>
+
+    <!-- thrust -->
+    <link name="thrust${self}">
+      <inertial>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <mass value="0.00001"/>
+        <inertia
+          ixx="0.00001" ixy="0.0" ixz="0.0"
+          iyy="0.00001" iyz="0.0"
+          izz="0.00002"/>
+      </inertial>
+      <visual>
+        <geometry>
+          <!-- TODO CCWとCWで場合分けする -->
+          <mesh filename="package://orochi_hx/urdf/mesh/thrust.dae"/>
+        </geometry>
+        <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
+      </visual>
+      <collision>
+        <geometry>
+          <mesh filename="package://orochi_hx/urdf/mesh/thrust_collision.stl"/>
+        </geometry>
+        <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
+      </collision>
+    </link>
+    <!-- <xacro:friction link="thrust${self}"/> -->
+    <xacro:dampinf_factor link="thrust${self}"/>
+
+    <!-- battery -->
+
+    <!-- leg -->
+
+    <!-- joint TODO effort velocity確認 hydrus, dragon, datasheet-->
+    <joint name="male_roll${self}" type="revolute">
+      <limit effort="5.0" lower="${-pi}" upper="${pi}" velocity="1.0"/>
+      <!-- <limit effort="5.0" lower="${-pi}" upper="${pi}" velocity="0.2"/> -->
+      <!-- <limit effort="4.1" lower="${-pi}" upper="${pi}" velocity="2.40"/> -->
+      <parent link="male${self}"/>
+      <child link="body${self}"/>
+      <axis xyz="1. 0. 0."/>
+      <origin xyz="-0.2515 0.0 0.0" rpy="0.0 -0.0 0.0"/>
+    </joint>
+    <joint name="gimbal_pitch${self}" type="revolute">
+      <limit effort="1.5" lower="${-pi}" upper="${pi}" velocity="12.5"/>
+      <!-- <limit effort="1.4" lower="${-pi}" upper="${pi}" velocity="5.96"/> -->
+      <parent link="body${self}"/>
+      <child link="duct${self}"/>
+      <axis xyz="0. 1. 0."/>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
+    </joint>
+    <joint name="female_roll${self}" type="revolute">
+      <limit effort="5.0" lower="${-pi}" upper="${pi}" velocity="1.0"/>
+      <!-- <limit effort="5.0" lower="${-pi}" upper="${pi}" velocity="0.2"/> -->
+      <!-- <limit effort="4.1" lower="${-pi}" upper="${pi}" velocity="2.40"/> -->
+      <parent link="body${self}"/>
+      <child link="female${self}"/>
+      <axis xyz="1. 0. 0."/>
+      <origin xyz="-0.27903 0.0 0.0" rpy="0.0 -0.0 0.0"/>
+    </joint>
+    <xacro:unless value="${self == links}">
+      <joint name="joint_yaw${self}" type="continuous">
+        <limit effort="10.0" lower="${-pi/2}" upper="${pi/2}" velocity="0.5"/>
+        <!-- <limit effort="10.0" lower="${-pi/2}" upper="${pi/2}" velocity="0.1"/> -->
+        <!-- <limit effort="8.2" lower="${-pi/2}" upper="${pi/2}" velocity="1.20"/> -->
+        <parent link="female${self}"/>
+        <child link="male${self+1}"/>
+        <axis xyz="0. 0. 1."/>
+        <!-- <origin xyz="2.56e-05 0.0 0.0" rpy="0.0 -0.0 0.0"/> -->
+        <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
+      </joint>
+    </xacro:unless>
+
+    <xacro:if value="${self == 1}">
+      <!-- dummy root link for KDL -->
+      <link name="root"?
+        <inertial>
+          <origin xyz="0 0 0" rpy="0 0 0"/>
+          <mass value="0.00001"/>
+          <inertia
+              ixx="0.000001" ixy="0.0" ixz="0.0"
+              iyy="0.000001" iyz="0.0"
+              izz="0.000002"/>
+        </inertial>
+      </link>
+      <joint name="root_joint" type="fixed">
+        <parent link="root"/>
+        <child link="male${self}"/>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <axis xyz="0 0 1"/>
+      </joint>
+    </xacro:if>
+
+    <!-- hardware interface -->
+    <transmission name="male_roll_tran${self}">
+      <type>transmission_interface/SimpleTransmission</type>
+      <joint name="male_roll${self}">
+        <!-- TODO: effort is torque, maybe position is enough -->
+        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      </joint>
+      <actuator name="servo_male_roll{self}">
+        <!-- TODO: effort is torque, maybe position is enough -->
+        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        <mechanicalReduction>1</mechanicalReduction>
+      </actuator>
+    </transmission>
+    <transmission name="gimbal_pitch_tran${self}">
+      <type>transmission_interface/SimpleTransmission</type>
+      <joint name="gimbal_pitch${self}">
+        <!-- TODO: effort is torque, maybe position is enough -->
+        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      </joint>
+      <actuator name="servo_gimbal_pitch{self}">
+        <!-- TODO: effort is torque, maybe position is enough -->
+        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        <mechanicalReduction>1</mechanicalReduction>
+      </actuator>
+    </transmission>
+    <transmission name="female_roll_tran${self}">
+      <type>transmission_interface/SimpleTransmission</type>
+      <joint name="female_roll${self}">
+        <!-- TODO: effort is torque, maybe position is enough -->
+        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      </joint>
+      <actuator name="servo_female_roll{self}">
+        <!-- TODO: effort is torque, maybe position is enough -->
+        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        <mechanicalReduction>1</mechanicalReduction>
+      </actuator>
+    </transmission>
+    <xacro:unless value="${self == links}">
+      <transmission name="joint_yaw_tran${self}">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="joint_yaw${self}">
+          <!-- TODO: effort is torque, maybe position is enough -->
+          <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="servo_joint_yaw{self}">
+          <!-- TODO: effort is torque, maybe position is enough -->
+          <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+          <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+      </transmission>
+    </xacro:unless>
+
+    <transmission name="rotor_tran${self}">
+      <type>transmission_interface/SimpleTransmission</type>
+      <joint name="rotor${self}">
+        <!-- TODO: effort is torque, maybe position is enough -->
+        <hardwareInterface>RotorInterface</hardwareInterface>
+      </joint>
+      <actuator name="rotor${self}">
+        <!-- TODO: effort is torque, maybe position is enough -->
+        <hardwareInterface>RotorInterface</hardwareInterface>
+        <mechanicalReduction>1</mechanicalReduction>
+      </actuator>
+    </transmission>
+
+  </xacro:macro>
+
+</robot>
