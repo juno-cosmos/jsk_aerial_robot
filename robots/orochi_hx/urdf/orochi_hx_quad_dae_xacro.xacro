@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="orochi_hx_common">
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="orochi_hx_quad_dae_xacro">
   <link name="male1">
     <inertial>
       <origin xyz="-0.052739878482681 -9.34675991357908e-07 -0.0296530174438008" rpy="0.0 -0.0 0.0"/>
@@ -8,14 +8,14 @@
     </inertial>
     <visual>
       <geometry>
-        <mesh filename="package://orochi_hx/urdf/meshes/male1.dae"/>
+        <mesh filename="package://orochi_hx_quad_3dxml_xacro/meshes/male1.dae"/>
       </geometry>
       <material name="__unnamed_material_1"/>
       <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
     </visual>
     <collision>
       <geometry>
-        <mesh filename="package://orochi_hx/urdf/meshes/male1.stl"/>
+        <mesh filename="package://orochi_hx_quad_3dxml_xacro/meshes/male1.stl"/>
       </geometry>
       <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
     </collision>
@@ -28,14 +28,14 @@
     </inertial>
     <visual>
       <geometry>
-        <mesh filename="package://orochi_hx/urdf/meshes/body1_body1.dae"/>
+        <mesh filename="package://orochi_hx_quad_3dxml_xacro/meshes/body1_body1.dae"/>
       </geometry>
       <material name="__unnamed_material_2"/>
       <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
     </visual>
     <collision>
       <geometry>
-        <mesh filename="package://orochi_hx/urdf/meshes/body1_body1_collision.stl"/>
+        <mesh filename="package://orochi_hx_quad_3dxml_xacro/meshes/body1_body1_collision.stl"/>
       </geometry>
       <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
     </collision>
@@ -48,14 +48,14 @@
     </inertial>
     <visual>
       <geometry>
-        <mesh filename="package://orochi_hx/urdf/meshes/duct1_duct1.dae"/>
+        <mesh filename="package://orochi_hx_quad_3dxml_xacro/meshes/duct1_duct1.dae"/>
       </geometry>
       <material name="__unnamed_material_3"/>
       <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
     </visual>
     <collision>
       <geometry>
-        <mesh filename="package://orochi_hx/urdf/meshes/duct1_duct1_collision.stl"/>
+        <mesh filename="package://orochi_hx_quad_3dxml_xacro/meshes/duct1_duct1_collision.stl"/>
       </geometry>
       <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
     </collision>
@@ -68,14 +68,14 @@
     </inertial>
     <visual>
       <geometry>
-        <mesh filename="package://orochi_hx/urdf/meshes/thrust1_thrust1.dae"/>
+        <mesh filename="package://orochi_hx_quad_3dxml_xacro/meshes/thrust1_thrust1.dae"/>
       </geometry>
       <material name="__unnamed_material_4"/>
       <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
     </visual>
     <collision>
       <geometry>
-        <mesh filename="package://orochi_hx/urdf/meshes/thrust1_thrust1_collision.stl"/>
+        <mesh filename="package://orochi_hx_quad_3dxml_xacro/meshes/thrust1_thrust1_collision.stl"/>
       </geometry>
       <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
     </collision>
@@ -88,14 +88,14 @@
     </inertial>
     <visual>
       <geometry>
-        <mesh filename="package://orochi_hx/urdf/meshes/female1_female1.dae"/>
+        <mesh filename="package://orochi_hx_quad_3dxml_xacro/meshes/female1_female1.dae"/>
       </geometry>
       <material name="__unnamed_material_5"/>
       <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
     </visual>
     <collision>
       <geometry>
-        <mesh filename="package://orochi_hx/urdf/meshes/female1_female1_collision.stl"/>
+        <mesh filename="package://orochi_hx_quad_3dxml_xacro/meshes/female1_female1_collision.stl"/>
       </geometry>
       <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
     </collision>
@@ -108,14 +108,14 @@
     </inertial>
     <visual>
       <geometry>
-        <mesh filename="package://orochi_hx/urdf/meshes/male2_male2.dae"/>
+        <mesh filename="package://orochi_hx_quad_3dxml_xacro/meshes/male2_male2.dae"/>
       </geometry>
       <material name="__unnamed_material_6"/>
       <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
     </visual>
     <collision>
       <geometry>
-        <mesh filename="package://orochi_hx/urdf/meshes/male2_male2_collision.stl"/>
+        <mesh filename="package://orochi_hx_quad_3dxml_xacro/meshes/male2_male2_collision.stl"/>
       </geometry>
       <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
     </collision>
@@ -128,14 +128,14 @@
     </inertial>
     <visual>
       <geometry>
-        <mesh filename="package://orochi_hx/urdf/meshes/body2_body2.dae"/>
+        <mesh filename="package://orochi_hx_quad_3dxml_xacro/meshes/body2_body2.dae"/>
       </geometry>
       <material name="__unnamed_material_7"/>
       <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
     </visual>
     <collision>
       <geometry>
-        <mesh filename="package://orochi_hx/urdf/meshes/body2_body2_collision.stl"/>
+        <mesh filename="package://orochi_hx_quad_3dxml_xacro/meshes/body2_body2_collision.stl"/>
       </geometry>
       <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
     </collision>
@@ -148,14 +148,14 @@
     </inertial>
     <visual>
       <geometry>
-        <mesh filename="package://orochi_hx/urdf/meshes/duct2_duct2.dae"/>
+        <mesh filename="package://orochi_hx_quad_3dxml_xacro/meshes/duct2_duct2.dae"/>
       </geometry>
       <material name="__unnamed_material_8"/>
       <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
     </visual>
     <collision>
       <geometry>
-        <mesh filename="package://orochi_hx/urdf/meshes/duct2_duct2_collision.stl"/>
+        <mesh filename="package://orochi_hx_quad_3dxml_xacro/meshes/duct2_duct2_collision.stl"/>
       </geometry>
       <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
     </collision>
@@ -168,14 +168,14 @@
     </inertial>
     <visual>
       <geometry>
-        <mesh filename="package://orochi_hx/urdf/meshes/thrust2_thrust2.dae"/>
+        <mesh filename="package://orochi_hx_quad_3dxml_xacro/meshes/thrust2_thrust2.dae"/>
       </geometry>
       <material name="__unnamed_material_9"/>
       <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
     </visual>
     <collision>
       <geometry>
-        <mesh filename="package://orochi_hx/urdf/meshes/thrust2_thrust2_collision.stl"/>
+        <mesh filename="package://orochi_hx_quad_3dxml_xacro/meshes/thrust2_thrust2_collision.stl"/>
       </geometry>
       <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
     </collision>
@@ -188,14 +188,14 @@
     </inertial>
     <visual>
       <geometry>
-        <mesh filename="package://orochi_hx/urdf/meshes/female2_female2.dae"/>
+        <mesh filename="package://orochi_hx_quad_3dxml_xacro/meshes/female2_female2.dae"/>
       </geometry>
       <material name="__unnamed_material_10"/>
       <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
     </visual>
     <collision>
       <geometry>
-        <mesh filename="package://orochi_hx/urdf/meshes/female2_female2_collision.stl"/>
+        <mesh filename="package://orochi_hx_quad_3dxml_xacro/meshes/female2_female2_collision.stl"/>
       </geometry>
       <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
     </collision>
@@ -209,14 +209,14 @@
     </inertial>
     <visual>
       <geometry>
-        <mesh filename="package://orochi_hx/urdf/meshes/male3_male3.dae"/>
+        <mesh filename="package://orochi_hx_quad_3dxml_xacro/meshes/male3_male3.dae"/>
       </geometry>
       <material name="__unnamed_material_11"/>
       <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
     </visual>
     <collision>
       <geometry>
-        <mesh filename="package://orochi_hx/urdf/meshes/male3_male3_collision.stl"/>
+        <mesh filename="package://orochi_hx_quad_3dxml_xacro/meshes/male3_male3_collision.stl"/>
       </geometry>
       <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
     </collision>
@@ -229,14 +229,14 @@
     </inertial>
     <visual>
       <geometry>
-        <mesh filename="package://orochi_hx/urdf/meshes/body3_body3.dae"/>
+        <mesh filename="package://orochi_hx_quad_3dxml_xacro/meshes/body3_body3.dae"/>
       </geometry>
       <material name="__unnamed_material_12"/>
       <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
     </visual>
     <collision>
       <geometry>
-        <mesh filename="package://orochi_hx/urdf/meshes/body3_body3_collision.stl"/>
+        <mesh filename="package://orochi_hx_quad_3dxml_xacro/meshes/body3_body3_collision.stl"/>
       </geometry>
       <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
     </collision>
@@ -249,14 +249,14 @@
     </inertial>
     <visual>
       <geometry>
-        <mesh filename="package://orochi_hx/urdf/meshes/duct3_duct3.dae"/>
+        <mesh filename="package://orochi_hx_quad_3dxml_xacro/meshes/duct3_duct3.dae"/>
       </geometry>
       <material name="__unnamed_material_13"/>
       <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
     </visual>
     <collision>
       <geometry>
-        <mesh filename="package://orochi_hx/urdf/meshes/duct3_duct3_collision.stl"/>
+        <mesh filename="package://orochi_hx_quad_3dxml_xacro/meshes/duct3_duct3_collision.stl"/>
       </geometry>
       <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
     </collision>
@@ -269,14 +269,14 @@
     </inertial>
     <visual>
       <geometry>
-        <mesh filename="package://orochi_hx/urdf/meshes/thrust3_thrust3.dae"/>
+        <mesh filename="package://orochi_hx_quad_3dxml_xacro/meshes/thrust3_thrust3.dae"/>
       </geometry>
       <material name="__unnamed_material_14"/>
       <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
     </visual>
     <collision>
       <geometry>
-        <mesh filename="package://orochi_hx/urdf/meshes/thrust3_thrust3_collision.stl"/>
+        <mesh filename="package://orochi_hx_quad_3dxml_xacro/meshes/thrust3_thrust3_collision.stl"/>
       </geometry>
       <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
     </collision>
@@ -289,14 +289,14 @@
     </inertial>
     <visual>
       <geometry>
-        <mesh filename="package://orochi_hx/urdf/meshes/female3_female3.dae"/>
+        <mesh filename="package://orochi_hx_quad_3dxml_xacro/meshes/female3_female3.dae"/>
       </geometry>
       <material name="__unnamed_material_15"/>
       <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
     </visual>
     <collision>
       <geometry>
-        <mesh filename="package://orochi_hx/urdf/meshes/female3_female3_collision.stl"/>
+        <mesh filename="package://orochi_hx_quad_3dxml_xacro/meshes/female3_female3_collision.stl"/>
       </geometry>
       <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
     </collision>
@@ -309,14 +309,14 @@
     </inertial>
     <visual>
       <geometry>
-        <mesh filename="package://orochi_hx/urdf/meshes/male4_male4.dae"/>
+        <mesh filename="package://orochi_hx_quad_3dxml_xacro/meshes/male4_male4.dae"/>
       </geometry>
       <material name="__unnamed_material_16"/>
       <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
     </visual>
     <collision>
       <geometry>
-        <mesh filename="package://orochi_hx/urdf/meshes/male4_male4_collision.stl"/>
+        <mesh filename="package://orochi_hx_quad_3dxml_xacro/meshes/male4_male4_collision.stl"/>
       </geometry>
       <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
     </collision>
@@ -329,14 +329,14 @@
     </inertial>
     <visual>
       <geometry>
-        <mesh filename="package://orochi_hx/urdf/meshes/body4_body4.dae"/>
+        <mesh filename="package://orochi_hx_quad_3dxml_xacro/meshes/body4_body4.dae"/>
       </geometry>
       <material name="__unnamed_material_17"/>
       <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
     </visual>
     <collision>
       <geometry>
-        <mesh filename="package://orochi_hx/urdf/meshes/body4_body4_collision.stl"/>
+        <mesh filename="package://orochi_hx_quad_3dxml_xacro/meshes/body4_body4_collision.stl"/>
       </geometry>
       <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
     </collision>
@@ -349,14 +349,14 @@
     </inertial>
     <visual>
       <geometry>
-        <mesh filename="package://orochi_hx/urdf/meshes/duct4_duct4.dae"/>
+        <mesh filename="package://orochi_hx_quad_3dxml_xacro/meshes/duct4_duct4.dae"/>
       </geometry>
       <material name="__unnamed_material_18"/>
       <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
     </visual>
     <collision>
       <geometry>
-        <mesh filename="package://orochi_hx/urdf/meshes/duct4_duct4_collision.stl"/>
+        <mesh filename="package://orochi_hx_quad_3dxml_xacro/meshes/duct4_duct4_collision.stl"/>
       </geometry>
       <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
     </collision>
@@ -369,14 +369,14 @@
     </inertial>
     <visual>
       <geometry>
-        <mesh filename="package://orochi_hx/urdf/meshes/thrust4_thrust4.dae"/>
+        <mesh filename="package://orochi_hx_quad_3dxml_xacro/meshes/thrust4_thrust4.dae"/>
       </geometry>
       <material name="__unnamed_material_19"/>
       <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
     </visual>
     <collision>
       <geometry>
-        <mesh filename="package://orochi_hx/urdf/meshes/thrust4_thrust4_collision.stl"/>
+        <mesh filename="package://orochi_hx_quad_3dxml_xacro/meshes/thrust4_thrust4_collision.stl"/>
       </geometry>
       <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
     </collision>
@@ -389,14 +389,14 @@
     </inertial>
     <visual>
       <geometry>
-        <mesh filename="package://orochi_hx/urdf/meshes/female4_female4.dae"/>
+        <mesh filename="package://orochi_hx_quad_3dxml_xacro/meshes/female4_female4.dae"/>
       </geometry>
       <material name="__unnamed_material_20"/>
       <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
     </visual>
     <collision>
       <geometry>
-        <mesh filename="package://orochi_hx/urdf/meshes/female4_female4_collision.stl"/>
+        <mesh filename="package://orochi_hx_quad_3dxml_xacro/meshes/female4_female4_collision.stl"/>
       </geometry>
       <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
     </collision>

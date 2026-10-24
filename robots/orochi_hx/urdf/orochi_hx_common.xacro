@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<robot
+  xmlns:xacro="http://www.ros.org/wiki/xacro" name="orochi_hx_common">
+
+  <!-- general attribute -->
+  <baselink name="fc" />
+  <thrust_link name="thrust" />
+
+  <!-- kinematics [m] -->
+  <!-- you use these property for collision model -->
+  <!-- <xacro:property name="male_length" value="TODO" /> -->
+  <!-- <xacro:property name="body_radius" value="TODO" -->
+  <!-- <xacro:property name="duct_radius" value="TODO" /> -->
+  <!-- <xacro:property name="female_radius" value="TODO" /> -->
+
+  <!-- <xacro:property name="male_leg_offset" value="TODO" /> -->
+  <!-- <xacro:property name="body_leg_offset" value="TODO" /> -->
+  <!-- <xacro:property name="female_leg_offset" value="TODO" /> -->
+
+  <!-- collision model parameter -->
+  <!-- <xacro:property name="leg_collision_model_height" value="TODO" /> -->
+
+  <!-- dynamics -->
+  <m_f_rate value="-0.0172" /> <!-- drug torque rate -->
+  <xacro:property name="max_force" value="20.0" /> <!-- [N] -->
+  <xacro:property name="min_force" value="1.0" /> <!-- [N] -->
+
+    <!-- friction -->
+  <xacro:macro name="friction" params="link">
+    <gazebo reference="${link}">
+      <mu1>0.1</mu1>
+      <mu2>0.1</mu2>
+    </gazebo>
+  </xacro:macro>
+
+  <xacro:macro name="damping_factor" params="link">
+    <gazebo reference="${link}">
+      <dampingFactor>0.00</dampingFactor>
+    </gazebo>
+  </xacro:macro>
+
+</robot>

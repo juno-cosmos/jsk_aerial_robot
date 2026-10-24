@@ -3,7 +3,7 @@
     name="model" />
   <param
     name="robot_description"
-    command="$(find xacro)/xacro '$(find orochi_hx)/urdf/common.xacro'" />
+    command="$(find xacro)/xacro '$(find orochi_hx)/robots/quad/default_mode_202610/robot.urdf.xacro'" />
   <node
     name="joint_state_publisher_gui"
     pkg="joint_state_publisher_gui"

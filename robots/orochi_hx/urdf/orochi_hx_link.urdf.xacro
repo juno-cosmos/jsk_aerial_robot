@@ -39,7 +39,7 @@
         </visual>
         <collision>
           <geometry>
-            <mesh filename="package://orochi_hx/urdf/mesh/male2_collision.stl"/>
+            <mesh filename="package://orochi_hx/urdf/mesh/male_collision.stl"/>
           </geometry>
           <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
         </collision>
@@ -104,14 +104,13 @@
         </inertial>
         <visual>
           <geometry>
-            <mesh filename="package://orochi_hx/urdf/meshes/female_with_circuits.dae"/>
+            <mesh filename="package://orochi_hx/urdf/mesh/female_with_circuits.dae"/>
           </geometry>
-          <material name="__unnamed_material_10"/>
           <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
         </visual>
         <collision>
           <geometry>
-            <mesh filename="package://orochi_hx/urdf/meshes/female_with_circuits_collision.stl"/>
+            <mesh filename="package://orochi_hx/urdf/mesh/female_with_circuits_collision.stl"/>
           </geometry>
           <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
         </collision>
@@ -173,7 +172,40 @@
       </collision>
     </link>
     <!-- <xacro:friction link="thrust${self}"/> -->
-    <xacro:dampinf_factor link="thrust${self}"/>
+    <xacro:damping_factor link="thrust${self}"/>
+
+    <!-- fc -->
+    <xacro:if value="${self == 2}">
+      <link name="fc">
+        <inertial>
+          <mass value = "0.05" />
+          <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+          <inertia
+            ixx="0.00001" ixy="0.0" ixz="0.0"
+            iyy="0.00001" iyz="0.0"
+            izz="0.00002"/>
+        </inertial>
+        <visual>
+          <geometry>
+            <sphere radius="0.01"/>
+          </geometry>
+          <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+        </visual>
+        <collision>
+          <geometry>
+            <sphere radius="0.01"/>
+          </geometry>
+          <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+        </collision>
+      </link>
+      <joint name="fc_joint" type="fixed">
+        <limit effort="0.0" velocity="0.0"/>
+        <parent link="female${self}"/>
+        <child link="fc"/>
+        <axis xyz="0. 0. 0."/>
+        <origin xyz="0.0507256031317576 0.00657000025706898 0.0290609989599881" rpy="0.0 -0.0 0.0"/>
+      </joint>
+    </xacro:if>
 
     <!-- battery -->
 
@@ -188,6 +220,7 @@
       <child link="body${self}"/>
       <axis xyz="1. 0. 0."/>
       <origin xyz="-0.2515 0.0 0.0" rpy="0.0 -0.0 0.0"/>
+      <dynamics damping="0.9" friction="0.05"/>
     </joint>
     <joint name="gimbal_pitch${self}" type="revolute">
       <limit effort="1.5" lower="${-pi}" upper="${pi}" velocity="12.5"/>
@@ -196,6 +229,7 @@
       <child link="duct${self}"/>
       <axis xyz="0. 1. 0."/>
       <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
+      <dynamics damping="0.1" friction="0.0"/>
     </joint>
     <joint name="female_roll${self}" type="revolute">
       <limit effort="5.0" lower="${-pi}" upper="${pi}" velocity="1.0"/>
@@ -205,6 +239,7 @@
       <child link="female${self}"/>
       <axis xyz="1. 0. 0."/>
       <origin xyz="-0.27903 0.0 0.0" rpy="0.0 -0.0 0.0"/>
+      <dynamics damping="0.9" friction="0.05"/>
     </joint>
     <xacro:unless value="${self == links}">
       <joint name="joint_yaw${self}" type="continuous">
@@ -216,12 +251,13 @@
         <axis xyz="0. 0. 1."/>
         <!-- <origin xyz="2.56e-05 0.0 0.0" rpy="0.0 -0.0 0.0"/> -->
         <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
+        <dynamics damping="0.9" friction="0.05"/>
       </joint>
     </xacro:unless>
 
     <xacro:if value="${self == 1}">
       <!-- dummy root link for KDL -->
-      <link name="root"?
+      <link name="root">
         <inertial>
           <origin xyz="0 0 0" rpy="0 0 0"/>
           <mass value="0.00001"/>
