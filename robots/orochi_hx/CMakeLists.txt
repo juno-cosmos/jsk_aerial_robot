@@ -4,93 +4,68 @@ project(orochi_hx)
 add_compile_options(-std=c++17)
 
 find_package(catkin REQUIRED COMPONENTS
-  roscpp
-  aerial_robot_msgs
   aerial_robot_control
+  aerial_robot_estimation
   aerial_robot_model
-  mujoco_ros_control
-  spinal
-  eigen_conversions
-  tf_conversions
-  std_srvs
+  aerial_robot_msgs
+  geometry_msgs
+  pluginlib
+  roscpp
+  std_msgs
   )
 
 find_package(Eigen3 REQUIRED)
+find_package(NLopt REQUIRED)
+find_package(OsqpEigen REQUIRED)
 
-catkin_package(
-  INCLUDE_DIRS include test
-  LIBRARIES hydrus_robot_model hydrus_controller_pluginlib hydrus_numerical_jacobians
-  CATKIN_DEPENDS roscpp aerial_robot_msgs aerial_robot_control aerial_robot_model spinal eigen_conversions tf_conversions std_srvs
-)
-
-# Eigen requires optimization to get good performance
-# http://eigen.tuxfamily.org/index.php?title=FAQ#Optimization
 if(NOT CMAKE_BUILD_TYPE)
   set(CMAKE_BUILD_TYPE RelWithDebInfo)
 endif()
-set(CMAKE_CXX_FLAGS_RELWITHDEBINFO "-O3 -g -DNDEBUG")
+set(CMAKE_CXX_FLAGS_RELWITHDEBINFO "${CMAKE_CXX_FLAGS_RELWITHDEBINFO} -O3 -g -DNDEBUG")
 
+catkin_package(
+  INCLUDE_DIRS include
+  CATKIN_DEPENDS aerial_robot_control aerial_robot_estimation aerial_robot_model aerial_robot_msgs geometry_msgs pluginlib roscpp std_msgs
+  LIBRARIES orochi_hx_controller orochi_hx_robot_model
+  )
 
-###########
-## Build ##
-###########
-
-## Specify additional locations of header files
-## Your package locations should be listed before other locations
-# include_directories(include)
 include_directories(
   include
-  test
-  ${Boost_INCLUDE_DIR}
   ${catkin_INCLUDE_DIRS}
-  ${EIGEN3_INCLUDE_DIRS}
-)
+  ${NLOPT_INCLUDE_DIRS}
+  ${OsqpEigen_INCLUDE_DIRS}
+  )
 
-add_library(orochi_hx_robot_model
-  src/orochi_hx_robot_model.cpp)
+add_library(orochi_hx_robot_model src/model/orochi_hx_robot_model.cpp)
 target_link_libraries(orochi_hx_robot_model ${catkin_LIBRARIES})
 
-### flight control plugin
-add_library(orochi_hx_controller_pluginlib
-  src/orochi_hx_controller.cpp)
-target_link_libraries(orochi_hx_controller_pluginlib orochi_hx_robot_model ${catkin_LIBRARIES} ${EIGEN3_LIBRARIES})
-add_dependencies(orochi_hx_controller_pluginlib aerial_robot_msgs_generate_messages_cpp spinal_generate_messages_cpp)
-
-# test
-# pre-build test code
-add_library(orochi_numerical_jacobians test/orochi_hx/numerical_jacobians.cpp)
-target_link_libraries(orochi_hx_numerical_jacobians orochi_hx_robot_model ${catkin_LIBRARIES})
-add_executable(orochi_hx_jacobian_test test/orochi_hx/jacobian_test.cpp)
-target_link_libraries(orochi_hx_jacobian_test orochi_hx_numerical_jacobians ${catkin_LIBRARIES} ${GTEST_LIBRARIES})
-
-
-install(DIRECTORY include/${PROJECT_NAME}/ test/${PROJECT_NAME}/
-  DESTINATION ${CATKIN_PACKAGE_INCLUDE_DESTINATION})
-
-install(TARGETS orochi_hx_jacobian_test
-  DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
-)
-
-install(TARGETS orochi_hx_robot_model orochi_hx_controller_pluginlib orochi_hx_numerical_jacobians
-  DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
-)
-
-install(DIRECTORY config scripts plugins launch
-  DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
-  USE_SOURCE_PERMISSIONS
-)
+add_library(orochi_hx_controller
+  src/control/orochi_hx_controller_common.cpp
+  src/control/orochi_hx_flight_controller.cpp
+  src/control/orochi_hx_wrench_allocation.cpp)
+target_link_libraries(orochi_hx_controller
+  orochi_hx_robot_model
+  ${catkin_LIBRARIES}
+  ${OsqpEigen_LIBRARIES}
+  ${NLOPT_LIBRARIES})
 
 install(DIRECTORY bin
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
-  USE_SOURCE_PERMISSIONS
-)
+  USE_SOURCE_PERMISSIONS)
 
-mujoco_model_convert(
-  ${PROJECT_SOURCE_DIR}
-  ${PROJECT_SOURCE_DIR}/config/mujoco_model.yaml)
+install(DIRECTORY include/${PROJECT_NAME}
+  DESTINATION ${CATKIN_PACKAGE_INCLUDE_DESTINATION})
+
+install(DIRECTORY config launch plugins scripts
+  DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
+  USE_SOURCE_PERMISSIONS)
+
+install(TARGETS orochi_hx_controller orochi_hx_robot_model
+  DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION})
+
+# catkin_add_env_hooks(99.delta SHELLS bash sh DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/env-hooks)
 
 if(CATKIN_ENABLE_TESTING)
   find_package(rostest REQUIRED)
   add_subdirectory(test)
 endif()
-

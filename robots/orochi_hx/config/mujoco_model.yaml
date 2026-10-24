@@ -1,0 +1,7 @@
+package:
+  ["orochi_hx"]
+
+hydrus:
+  input: ["robots/quad/default_mode_202610/robot.urdf.xacro"]
+  filename: ["quad/default_mode_202610"]
+  meshdir: "urdf/mesh"

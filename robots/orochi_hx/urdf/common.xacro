@@ -1,0 +1,604 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="orochi_hx_common">
+  <link name="male1">
+    <inertial>
+      <origin xyz="-0.052739878482681 -9.34675991357908e-07 -0.0296530174438008" rpy="0.0 -0.0 0.0"/>
+      <mass value="0.232368340978789"/>
+      <inertia ixx="0.000189201405336057" ixy="5.52592371497219e-09" ixz="3.65224196392575e-05" iyy="0.000272447160085503" iyz="-6.69151656946131e-10" izz="0.000168362228995049"/>
+    </inertial>
+    <visual>
+      <geometry>
+        <mesh filename="package://orochi_hx/urdf/meshes/male1.dae"/>
+      </geometry>
+      <material name="__unnamed_material_1"/>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://orochi_hx/urdf/meshes/male1.stl"/>
+      </geometry>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
+    </collision>
+  </link>
+  <link name="body1">
+    <inertial>
+      <origin xyz="0.249646267950928 0.0246488631309276 -0.00232944891667237" rpy="0.0 -0.0 0.0"/>
+      <mass value="0.419895456587595"/>
+      <inertia ixx="0.00520647615398925" ixy="-0.000107815705486367" ixz="-1.81339714467847e-06" iyy="0.00514529649185074" iyz="2.39989744251452e-05" izz="0.010151021448606"/>
+    </inertial>
+    <visual>
+      <geometry>
+        <mesh filename="package://orochi_hx/urdf/meshes/body1_body1.dae"/>
+      </geometry>
+      <material name="__unnamed_material_2"/>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://orochi_hx/urdf/meshes/body1_body1_collision.stl"/>
+      </geometry>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
+    </collision>
+  </link>
+  <link name="duct1">
+    <inertial>
+      <origin xyz="0.251457476616615 -0.00142751192883745 0.0011709194386648" rpy="0.0 -0.0 0.0"/>
+      <mass value="0.351486633634277"/>
+      <inertia ixx="0.0020630707445772" ixy="-2.92498532740653e-07" ixz="3.28976580216749e-07" iyy="0.00102307853147382" iyz="1.58803650253004e-07" izz="0.00281360888889416"/>
+    </inertial>
+    <visual>
+      <geometry>
+        <mesh filename="package://orochi_hx/urdf/meshes/duct1_duct1.dae"/>
+      </geometry>
+      <material name="__unnamed_material_3"/>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://orochi_hx/urdf/meshes/duct1_duct1_collision.stl"/>
+      </geometry>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
+    </collision>
+  </link>
+  <link name="thrust1">
+    <inertial>
+      <origin xyz="0.251500730869224 -4.83458320287225e-07 -0.0240414592834841" rpy="0.0 -0.0 0.0"/>
+      <mass value="0.014"/>
+      <inertia ixx="2.16181921634981e-05" ixy="-2.70479065464898e-10" ixz="8.44909652876859e-11" iyy="2.16176417634536e-05" iyz="1.17402302297112e-11" izz="4.31857846719917e-05"/>
+    </inertial>
+    <visual>
+      <geometry>
+        <mesh filename="package://orochi_hx/urdf/meshes/thrust1_thrust1.dae"/>
+      </geometry>
+      <material name="__unnamed_material_4"/>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://orochi_hx/urdf/meshes/thrust1_thrust1_collision.stl"/>
+      </geometry>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
+    </collision>
+  </link>
+  <link name="female1">
+    <inertial>
+      <origin xyz="0.597343994892686 2.04473894948366e-05 -0.0246395348050693" rpy="0.0 -0.0 0.0"/>
+      <mass value="0.264982417970611"/>
+      <inertia ixx="0.000287291406649856" ixy="-3.80521104155563e-07" ixz="-0.000168019190894103" iyy="0.000596449506923116" iyz="3.358784385771e-07" izz="0.00040264407172139"/>
+    </inertial>
+    <visual>
+      <geometry>
+        <mesh filename="package://orochi_hx/urdf/meshes/female1_female1.dae"/>
+      </geometry>
+      <material name="__unnamed_material_5"/>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://orochi_hx/urdf/meshes/female1_female1_collision.stl"/>
+      </geometry>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
+    </collision>
+  </link>
+  <link name="male2">
+    <inertial>
+      <origin xyz="0.480848878478817 -6.37525632024318e-07 -0.00526321596246022" rpy="0.0 -0.0 0.0"/>
+      <mass value="0.340677045513285"/>
+      <inertia ixx="0.000657095261464978" ixy="6.19678576389826e-09" ixz="8.97340693867749e-05" iyy="0.000757386523911567" iyz="4.62802062269456e-09" izz="0.000209861587892199"/>
+    </inertial>
+    <visual>
+      <geometry>
+        <mesh filename="package://orochi_hx/urdf/meshes/male2_male2.dae"/>
+      </geometry>
+      <material name="__unnamed_material_6"/>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://orochi_hx/urdf/meshes/male2_male2_collision.stl"/>
+      </geometry>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
+    </collision>
+  </link>
+  <link name="body2">
+    <inertial>
+      <origin xyz="0.780146267950925 0.0246488631309269 -0.00232944891666742" rpy="0.0 -0.0 0.0"/>
+      <mass value="0.419895456587595"/>
+      <inertia ixx="0.00520647615398925" ixy="-0.000107815705486369" ixz="-1.81339714467863e-06" iyy="0.00514529649185074" iyz="2.39989744251451e-05" izz="0.010151021448606"/>
+    </inertial>
+    <visual>
+      <geometry>
+        <mesh filename="package://orochi_hx/urdf/meshes/body2_body2.dae"/>
+      </geometry>
+      <material name="__unnamed_material_7"/>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://orochi_hx/urdf/meshes/body2_body2_collision.stl"/>
+      </geometry>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
+    </collision>
+  </link>
+  <link name="duct2">
+    <inertial>
+      <origin xyz="0.781957476616613 -0.0014275119288347 0.00117091943865414" rpy="0.0 -0.0 0.0"/>
+      <mass value="0.351486633634277"/>
+      <inertia ixx="0.0020630707445772" ixy="-2.92498532740798e-07" ixz="3.28976580216662e-07" iyy="0.00102307853147382" iyz="1.58803650253005e-07" izz="0.00281360888889416"/>
+    </inertial>
+    <visual>
+      <geometry>
+        <mesh filename="package://orochi_hx/urdf/meshes/duct2_duct2.dae"/>
+      </geometry>
+      <material name="__unnamed_material_8"/>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://orochi_hx/urdf/meshes/duct2_duct2_collision.stl"/>
+      </geometry>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
+    </collision>
+  </link>
+  <link name="thrust2">
+    <inertial>
+      <origin xyz="0.782000730869222 -4.83458330167487e-07 -0.0240414592834827" rpy="0.0 -0.0 0.0"/>
+      <mass value="0.014"/>
+      <inertia ixx="2.16181921634981e-05" ixy="-2.70479065466e-10" ixz="8.44909652876859e-11" iyy="2.16176417634536e-05" iyz="1.17402302297112e-11" izz="4.31857846719917e-05"/>
+    </inertial>
+    <visual>
+      <geometry>
+        <mesh filename="package://orochi_hx/urdf/meshes/thrust2_thrust2.dae"/>
+      </geometry>
+      <material name="__unnamed_material_9"/>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://orochi_hx/urdf/meshes/thrust2_thrust2_collision.stl"/>
+      </geometry>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
+    </collision>
+  </link>
+  <link name="female2">
+    <inertial>
+      <origin xyz="1.12698918290577 0.00619207162129304 -0.0202466021464508" rpy="0.0 -0.0 0.0"/>
+      <mass value="0.362731408934528"/>
+      <inertia ixx="0.000436668316629998" ixy="-8.91149536419333e-06" ixz="-0.000166184432843873" iyy="0.000716425694126863" iyz="8.2600244063983e-06" izz="0.000482080031496602"/>
+    </inertial>
+    <visual>
+      <geometry>
+        <mesh filename="package://orochi_hx/urdf/meshes/female2_female2.dae"/>
+      </geometry>
+      <material name="__unnamed_material_10"/>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://orochi_hx/urdf/meshes/female2_female2_collision.stl"/>
+      </geometry>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
+    </collision>
+  </link>
+  <link name="fc"/>
+  <link name="male3">
+    <inertial>
+      <origin xyz="1.01134887847881 -6.37526964539598e-07 -0.00526321596246703" rpy="0.0 -0.0 0.0"/>
+      <mass value="0.340677045513285"/>
+      <inertia ixx="0.000657095261464994" ixy="6.19678843920505e-09" ixz="8.97340693867715e-05" iyy="0.000757386523911582" iyz="4.62802301481178e-09" izz="0.000209861587892199"/>
+    </inertial>
+    <visual>
+      <geometry>
+        <mesh filename="package://orochi_hx/urdf/meshes/male3_male3.dae"/>
+      </geometry>
+      <material name="__unnamed_material_11"/>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://orochi_hx/urdf/meshes/male3_male3_collision.stl"/>
+      </geometry>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
+    </collision>
+  </link>
+  <link name="body3">
+    <inertial>
+      <origin xyz="1.31064626795026 0.0246488631375902 -0.00232944891667309" rpy="0.0 -0.0 0.0"/>
+      <mass value="0.419895456587595"/>
+      <inertia ixx="0.0052064761539835" ixy="-0.000107815705488004" ixz="-1.81339714529277e-06" iyy="0.00514529649185649" iyz="2.39989744250963e-05" izz="0.010151021448606"/>
+    </inertial>
+    <visual>
+      <geometry>
+        <mesh filename="package://orochi_hx/urdf/meshes/body3_body3.dae"/>
+      </geometry>
+      <material name="__unnamed_material_12"/>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://orochi_hx/urdf/meshes/body3_body3_collision.stl"/>
+      </geometry>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
+    </collision>
+  </link>
+  <link name="duct3">
+    <inertial>
+      <origin xyz="1.31245747661665 -0.00142751192214255 0.0011709194386469" rpy="0.0 -0.0 0.0"/>
+      <mass value="0.351486633634277"/>
+      <inertia ixx="0.00206307074457718" ixy="-2.9249856049086e-07" ixz="3.28976580212504e-07" iyy="0.00102307853147384" iyz="1.58803650261793e-07" izz="0.00281360888889416"/>
+    </inertial>
+    <visual>
+      <geometry>
+        <mesh filename="package://orochi_hx/urdf/meshes/duct3_duct3.dae"/>
+      </geometry>
+      <material name="__unnamed_material_13"/>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://orochi_hx/urdf/meshes/duct3_duct3_collision.stl"/>
+      </geometry>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
+    </collision>
+  </link>
+  <link name="thrust3">
+    <inertial>
+      <origin xyz="1.31250073086922 -4.83451620949196e-07 -0.024041459283479" rpy="0.0 -0.0 0.0"/>
+      <mass value="0.014"/>
+      <inertia ixx="2.16181921634981e-05" ixy="-2.70479065464898e-10" ixz="8.44909652876859e-11" iyy="2.16176417634536e-05" iyz="1.17402302297112e-11" izz="4.31857846719917e-05"/>
+    </inertial>
+    <visual>
+      <geometry>
+        <mesh filename="package://orochi_hx/urdf/meshes/thrust3_thrust3.dae"/>
+      </geometry>
+      <material name="__unnamed_material_14"/>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://orochi_hx/urdf/meshes/thrust3_thrust3_collision.stl"/>
+      </geometry>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
+    </collision>
+  </link>
+  <link name="female3">
+    <inertial>
+      <origin xyz="1.65834399489268 2.04474054208508e-05 -0.0246395348050689" rpy="0.0 -0.0 0.0"/>
+      <mass value="0.264982417970611"/>
+      <inertia ixx="0.000287291406649834" ixy="-3.80521095907271e-07" ixz="-0.000168019190894109" iyy="0.000596449506923128" iyz="3.35878434095166e-07" izz="0.000402644071721383"/>
+    </inertial>
+    <visual>
+      <geometry>
+        <mesh filename="package://orochi_hx/urdf/meshes/female3_female3.dae"/>
+      </geometry>
+      <material name="__unnamed_material_15"/>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://orochi_hx/urdf/meshes/female3_female3_collision.stl"/>
+      </geometry>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
+    </collision>
+  </link>
+  <link name="male4">
+    <inertial>
+      <origin xyz="1.54184887847881 -6.37511483005338e-07 -0.00526321596246462" rpy="0.0 -0.0 0.0"/>
+      <mass value="0.340677045513285"/>
+      <inertia ixx="0.000657095261464962" ixy="6.19678576411299e-09" ixz="8.9734069386783e-05" iyy="0.000757386523911554" iyz="4.62802062335394e-09" izz="0.000209861587892201"/>
+    </inertial>
+    <visual>
+      <geometry>
+        <mesh filename="package://orochi_hx/urdf/meshes/male4_male4.dae"/>
+      </geometry>
+      <material name="__unnamed_material_16"/>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://orochi_hx/urdf/meshes/male4_male4_collision.stl"/>
+      </geometry>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
+    </collision>
+  </link>
+  <link name="body4">
+    <inertial>
+      <origin xyz="1.84114626795092 0.0246488631450833 -0.00232944891666811" rpy="0.0 -0.0 0.0"/>
+      <mass value="0.419895456587595"/>
+      <inertia ixx="0.00520647615398925" ixy="-0.000107815705486369" ixz="-1.81339714467675e-06" iyy="0.00514529649185074" iyz="2.39989744251451e-05" izz="0.010151021448606"/>
+    </inertial>
+    <visual>
+      <geometry>
+        <mesh filename="package://orochi_hx/urdf/meshes/body4_body4.dae"/>
+      </geometry>
+      <material name="__unnamed_material_17"/>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://orochi_hx/urdf/meshes/body4_body4_collision.stl"/>
+      </geometry>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
+    </collision>
+  </link>
+  <link name="duct4">
+    <inertial>
+      <origin xyz="1.84295747661661 -0.00142751191469582 0.00117091943863856" rpy="0.0 -0.0 0.0"/>
+      <mass value="0.351486633634277"/>
+      <inertia ixx="0.0020630707445772" ixy="-2.92498532741037e-07" ixz="3.28976580216785e-07" iyy="0.00102307853147382" iyz="1.58803650253001e-07" izz="0.00281360888889416"/>
+    </inertial>
+    <visual>
+      <geometry>
+        <mesh filename="package://orochi_hx/urdf/meshes/duct4_duct4.dae"/>
+      </geometry>
+      <material name="__unnamed_material_18"/>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://orochi_hx/urdf/meshes/duct4_duct4_collision.stl"/>
+      </geometry>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
+    </collision>
+  </link>
+  <link name="thrust4">
+    <inertial>
+      <origin xyz="1.84300073086922 -4.83444178255282e-07 -0.0240414592834754" rpy="0.0 -0.0 0.0"/>
+      <mass value="0.014"/>
+      <inertia ixx="2.16181921634981e-05" ixy="-2.70479065465724e-10" ixz="8.44909652876854e-11" iyy="2.16176417634536e-05" iyz="1.17402302297048e-11" izz="4.31857846719917e-05"/>
+    </inertial>
+    <visual>
+      <geometry>
+        <mesh filename="package://orochi_hx/urdf/meshes/thrust4_thrust4.dae"/>
+      </geometry>
+      <material name="__unnamed_material_19"/>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://orochi_hx/urdf/meshes/thrust4_thrust4_collision.stl"/>
+      </geometry>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
+    </collision>
+  </link>
+  <link name="female4">
+    <inertial>
+      <origin xyz="2.18884399489268 2.04474036263704e-05 -0.0246395348050827" rpy="0.0 -0.0 0.0"/>
+      <mass value="0.264982417970611"/>
+      <inertia ixx="0.000287291406649856" ixy="-3.80521104155489e-07" ixz="-0.0001680191908941" iyy="0.000596449506923109" iyz="3.35878438577045e-07" izz="0.000402644071721383"/>
+    </inertial>
+    <visual>
+      <geometry>
+        <mesh filename="package://orochi_hx/urdf/meshes/female4_female4.dae"/>
+      </geometry>
+      <material name="__unnamed_material_20"/>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://orochi_hx/urdf/meshes/female4_female4_collision.stl"/>
+      </geometry>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
+    </collision>
+  </link>
+  <joint name="male_roll1" type="continuous">
+    <limit effort="0.0" velocity="0.0"/>
+    <parent link="male1"/>
+    <child link="body1"/>
+    <axis xyz="1. 0. 0."/>
+    <origin xyz="-0.2515 0.0 0.0" rpy="0.0 -0.0 0.0"/>
+  </joint>
+  <joint name="gimbal_pitch1" type="continuous">
+    <limit effort="0.0" velocity="0.0"/>
+    <parent link="body1"/>
+    <child link="duct1"/>
+    <axis xyz="0. 1. 0."/>
+    <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
+  </joint>
+  <joint name="rotor1" type="continuous">
+    <limit effort="0.0" velocity="0.0"/>
+    <parent link="duct1"/>
+    <child link="thrust1"/>
+    <axis xyz="0. 0. 1."/>
+    <origin xyz="0.0 0.0 0.024" rpy="0.0 -0.0 0.0"/>
+  </joint>
+  <joint name="female_roll1" type="continuous">
+    <limit effort="0.0" velocity="0.0"/>
+    <parent link="body1"/>
+    <child link="female1"/>
+    <axis xyz="1. 0. 0."/>
+    <origin xyz="-0.27903 0.0 0.0" rpy="0.0 -0.0 0.0"/>
+  </joint>
+  <joint name="joint_yaw1" type="continuous">
+    <limit effort="0.0" velocity="0.0"/>
+    <parent link="female1"/>
+    <child link="male2"/>
+    <axis xyz="0. 0. 1."/>
+    <origin xyz="2.56e-05 0.0 0.0" rpy="0.0 -0.0 0.0"/>
+  </joint>
+  <joint name="male_roll2" type="continuous">
+    <limit effort="0.0" velocity="0.0"/>
+    <parent link="male2"/>
+    <child link="body2"/>
+    <axis xyz="1. 0. 0."/>
+    <origin xyz="-0.2515 0.0 0.0" rpy="0.0 -0.0 0.0"/>
+  </joint>
+  <joint name="gimbal_pitch2" type="continuous">
+    <limit effort="0.0" velocity="0.0"/>
+    <parent link="body2"/>
+    <child link="duct2"/>
+    <axis xyz="0. 1. 0."/>
+    <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
+  </joint>
+  <joint name="rotor2" type="continuous">
+    <limit effort="0.0" velocity="0.0"/>
+    <parent link="duct2"/>
+    <child link="thrust2"/>
+    <axis xyz="0. 0. 1."/>
+    <origin xyz="0.0 0.0 0.024" rpy="0.0 -0.0 0.0"/>
+  </joint>
+  <joint name="female_roll2" type="continuous">
+    <limit effort="0.0" velocity="0.0"/>
+    <parent link="body2"/>
+    <child link="female2"/>
+    <axis xyz="1. 0. 0."/>
+    <origin xyz="-0.27903 0.0 0.0" rpy="0.0 -0.0 0.0"/>
+  </joint>
+  <joint name="fc_joint" type="fixed">
+    <limit effort="0.0" velocity="0.0"/>
+    <parent link="female2"/>
+    <child link="fc"/>
+    <axis xyz="0. 0. 0."/>
+    <origin xyz="0.0507256031317576 0.00657000025706898 0.0290609989599881" rpy="0.0 -0.0 0.0"/>
+  </joint>
+  <joint name="joint_yaw2" type="continuous">
+    <limit effort="0.0" velocity="0.0"/>
+    <parent link="female2"/>
+    <child link="male3"/>
+    <axis xyz="0. 0. 1."/>
+    <origin xyz="2.56e-05 0.0 0.0" rpy="0.0 -0.0 0.0"/>
+  </joint>
+  <joint name="male_roll3" type="continuous">
+    <limit effort="0.0" velocity="0.0"/>
+    <parent link="male3"/>
+    <child link="body3"/>
+    <axis xyz="1. 0. 0."/>
+    <origin xyz="-0.2515 0.0 0.0" rpy="0.0 -0.0 0.0"/>
+  </joint>
+  <joint name="gimbal_pitch3" type="continuous">
+    <limit effort="0.0" velocity="0.0"/>
+    <parent link="body3"/>
+    <child link="duct3"/>
+    <axis xyz="0. 1. 0."/>
+    <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
+  </joint>
+  <joint name="rotor3" type="continuous">
+    <limit effort="0.0" velocity="0.0"/>
+    <parent link="duct3"/>
+    <child link="thrust3"/>
+    <axis xyz="0. 0. 1."/>
+    <origin xyz="0.0 0.0 0.024" rpy="0.0 -0.0 0.0"/>
+  </joint>
+  <joint name="female_roll3" type="continuous">
+    <limit effort="0.0" velocity="0.0"/>
+    <parent link="body3"/>
+    <child link="female3"/>
+    <axis xyz="1. 0. 0."/>
+    <origin xyz="-0.27903 0.0 0.0" rpy="0.0 -0.0 0.0"/>
+  </joint>
+  <joint name="joint_yaw3" type="continuous">
+    <limit effort="0.0" velocity="0.0"/>
+    <parent link="female3"/>
+    <child link="male4"/>
+    <axis xyz="0. 0. 1."/>
+    <origin xyz="2.56e-05 0.0 0.0" rpy="0.0 -0.0 0.0"/>
+  </joint>
+  <joint name="male_roll4" type="continuous">
+    <limit effort="0.0" velocity="0.0"/>
+    <parent link="male4"/>
+    <child link="body4"/>
+    <axis xyz="1. 0. 0."/>
+    <origin xyz="-0.2515 0.0 0.0" rpy="0.0 -0.0 0.0"/>
+  </joint>
+  <joint name="gimbal_pitch4" type="continuous">
+    <limit effort="0.0" velocity="0.0"/>
+    <parent link="body4"/>
+    <child link="duct4"/>
+    <axis xyz="0. 1. 0."/>
+    <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
+  </joint>
+  <joint name="rotor4" type="continuous">
+    <limit effort="0.0" velocity="0.0"/>
+    <parent link="duct4"/>
+    <child link="thrust4"/>
+    <axis xyz="0. 0. 1."/>
+    <origin xyz="0.0 0.0 0.024" rpy="0.0 -0.0 0.0"/>
+  </joint>
+  <joint name="female_roll4" type="continuous">
+    <limit effort="0.0" velocity="0.0"/>
+    <parent link="body4"/>
+    <child link="female4"/>
+    <axis xyz="1. 0. 0."/>
+    <origin xyz="-0.27903 0.0 0.0" rpy="0.0 -0.0 0.0"/>
+  </joint>
+  <material name="__unnamed_material_1">
+    <color rgba="0.75294118 0.75294118 0.75294118 1.        "/>
+  </material>
+  <material name="__unnamed_material_2">
+    <color rgba="0.75294118 0.75294118 0.75294118 1.        "/>
+  </material>
+  <material name="__unnamed_material_3">
+    <color rgba="0.75294118 0.75294118 0.75294118 1.        "/>
+  </material>
+  <material name="__unnamed_material_4">
+    <color rgba="0.75294118 0.75294118 0.75294118 1.        "/>
+  </material>
+  <material name="__unnamed_material_5">
+    <color rgba="0.75294118 0.75294118 0.75294118 1.        "/>
+  </material>
+  <material name="__unnamed_material_6">
+    <color rgba="0.75294118 0.75294118 0.75294118 1.        "/>
+  </material>
+  <material name="__unnamed_material_7">
+    <color rgba="0.75294118 0.75294118 0.75294118 1.        "/>
+  </material>
+  <material name="__unnamed_material_8">
+    <color rgba="0.75294118 0.75294118 0.75294118 1.        "/>
+  </material>
+  <material name="__unnamed_material_9">
+    <color rgba="0.75294118 0.75294118 0.75294118 1.        "/>
+  </material>
+  <material name="__unnamed_material_10">
+    <color rgba="0.75294118 0.75294118 0.75294118 1.        "/>
+  </material>
+  <material name="__unnamed_material_11">
+    <color rgba="0.75294118 0.75294118 0.75294118 1.        "/>
+  </material>
+  <material name="__unnamed_material_12">
+    <color rgba="0.75294118 0.75294118 0.75294118 1.        "/>
+  </material>
+  <material name="__unnamed_material_13">
+    <color rgba="0.75294118 0.75294118 0.75294118 1.        "/>
+  </material>
+  <material name="__unnamed_material_14">
+    <color rgba="0.75294118 0.75294118 0.75294118 1.        "/>
+  </material>
+  <material name="__unnamed_material_15">
+    <color rgba="0.75294118 0.75294118 0.75294118 1.        "/>
+  </material>
+  <material name="__unnamed_material_16">
+    <color rgba="0.75294118 0.75294118 0.75294118 1.        "/>
+  </material>
+  <material name="__unnamed_material_17">
+    <color rgba="0.75294118 0.75294118 0.75294118 1.        "/>
+  </material>
+  <material name="__unnamed_material_18">
+    <color rgba="0.75294118 0.75294118 0.75294118 1.        "/>
+  </material>
+  <material name="__unnamed_material_19">
+    <color rgba="0.75294118 0.75294118 0.75294118 1.        "/>
+  </material>
+  <material name="__unnamed_material_20">
+    <color rgba="0.75294118 0.75294118 0.75294118 1.        "/>
+  </material>
+</robot>

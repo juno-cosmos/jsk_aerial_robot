@@ -4,7 +4,7 @@
 
 In one terminal, run
 
-`roslaunch mini_quadrotor bringup.launch real_machine:=false simulation:=True headless:=False`
+`roslaunch orochi_hx bringup.launch real_machine:=false simulation:=True headless:=False`
 
 In another terminal, run
 
