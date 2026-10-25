@@ -16,5 +16,5 @@
     name="rviz"
     pkg="rviz"
     type="rviz"
-    args="-d $(find orochi_hx)/config/rviz_config.rviz" />
+    args="-d $(find orochi_hx)/config/only_display_config.rviz" />
 </launch>
