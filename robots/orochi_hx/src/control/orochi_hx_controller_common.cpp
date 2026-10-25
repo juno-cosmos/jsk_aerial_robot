@@ -227,7 +227,7 @@ void OrochiHxController::sendGimbalAngles()
   for (int i = 0; i < motor_num_; i++)
   {
     gimbal_control_msg.position.push_back(target_gimbal_angles_.at(i));
-    gimbal_control_msg.name.push_back(std::string("gimbal") + std::to_string(i + 1));
+    gimbal_control_msg.name.push_back(std::string("gimbal_pitch") + std::to_string(i + 1));
   }
   gimbal_control_pub_.publish(gimbal_control_msg);
 }
