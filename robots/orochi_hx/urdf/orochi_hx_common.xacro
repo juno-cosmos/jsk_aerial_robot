@@ -33,9 +33,17 @@
     </gazebo>
   </xacro:macro>
 
+  <!-- damping factor -->
   <xacro:macro name="damping_factor" params="link">
     <gazebo reference="${link}">
       <dampingFactor>0.00</dampingFactor>
+    </gazebo>
+  </xacro:macro>
+
+  <!-- implicit damper -->
+  <xacro:macro name="implicit_damper" params="joint">
+    <gazebo reference="${joint}">
+      <implicitSpringDamper>true</implicitSpringDamper>
     </gazebo>
   </xacro:macro>
 
