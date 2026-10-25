@@ -18,11 +18,17 @@
           </geometry>
           <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
         </visual>
-        <collision>
+        <collision name="male${self}_pipe_collision">
           <geometry>
-            <mesh filename="package://orochi_hx/urdf/mesh/male_head_collision.stl"/>
+            <box size="0.077 0.02 0.02"/>
           </geometry>
-          <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
+          <origin xyz="-0.0325 0 0" rpy="0.0 -0.0 0.0"/>
+        </collision>
+        <collision name="male${self}_leg_collision">
+          <geometry>
+            <box size="0.038 0.0525 0.07025"/>
+          </geometry>
+          <origin xyz="-0.051 0 -0.04512" rpy="0.0 -0.0 0.0"/>
         </collision>
       </xacro:if>
       <xacro:unless value="${self == 1}">
@@ -37,11 +43,17 @@
           </geometry>
           <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
         </visual>
-        <collision>
+        <collision name="male${self}_pipe_collision">
           <geometry>
-            <mesh filename="package://orochi_hx/urdf/mesh/male_collision.stl"/>
+            <box size="0.077 0.02 0.02"/>
           </geometry>
-          <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
+          <origin xyz="-0.0325 0 0" rpy="0.0 -0.0 0.0"/>
+        </collision>
+        <collision name="male${self}_leg_collision">
+          <geometry>
+            <box size="0.038 0.0525 0.07025"/>
+          </geometry>
+          <origin xyz="-0.051 0 -0.04512" rpy="0.0 -0.0 0.0"/>
         </collision>
       </xacro:unless>
     </link>
@@ -61,11 +73,29 @@
         </geometry>
         <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
       </visual>
-      <collision>
+      <collision name="body${self}_long_pipe_left_collision">
         <geometry>
-          <mesh filename="package://orochi_hx/urdf/mesh/body_collision.stl"/>
+          <box size="0.166 0.01 0.03"/>
         </geometry>
-        <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
+        <origin xyz="0.0 0.142 0.0" rpy="0.0 -0.0 0.0"/>
+      </collision>
+      <collision name="body${self}_long_pipe_right_collision">
+        <geometry>
+          <box size="0.166 0.01 0.03"/>
+        </geometry>
+        <origin xyz="0.0 -0.142 0.0" rpy="0.0 -0.0 0.0"/>
+      </collision>
+      <collision name="body${self}_leg_left_collision">
+        <geometry>
+          <cylinder radius="0.0065" length="0.07025"/>
+        </geometry>
+        <origin xyz="0 0.1395 -0.05012" rpy="0 0 0"/>
+      </collision>
+      <collision name="body${self}_leg_right_collision">
+        <geometry>
+          <cylinder radius="0.0065" length="0.07025"/>
+        </geometry>
+        <origin xyz="0 -0.1395 -0.05012" rpy="0 0 0"/>
       </collision>
     </link>
     <xacro:friction link="body${self}"/>
@@ -84,11 +114,11 @@
         </geometry>
         <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
       </visual>
-      <collision>
+      <collision name="duct${self}_duct_collision">
         <geometry>
-          <mesh filename="package://orochi_hx/urdf/mesh/duct_collision.stl"/>
+          <cylinder radius="0.1175" length="0.08"/>
         </geometry>
-        <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
+        <origin xyz="0.0 0.0 0.01" rpy="0.0 -0.0 0.0"/>
       </collision>
     </link>
     <!-- <xacro:friction link="duct${self}"/> -->
@@ -108,11 +138,17 @@
           </geometry>
           <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
         </visual>
-        <collision>
+        <collision name="female${self}_pipe_collision">
           <geometry>
-            <mesh filename="package://orochi_hx/urdf/mesh/female_with_circuits_collision.stl"/>
+            <box size="0.079 0.02 0.02"/>
           </geometry>
-          <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
+          <origin xyz="0.05903 0 0" rpy="0.0 -0.0 0.0"/>
+        </collision>
+        <collision name="female${self}_leg_collision">
+          <geometry>
+            <box size="0.038 0.0525 0.07025"/>
+          </geometry>
+          <origin xyz="0.07803 0 -0.05012" rpy="0.0 -0.0 0.0"/>
         </collision>
       </xacro:if>
       <xacro:unless value="${self == 2}">

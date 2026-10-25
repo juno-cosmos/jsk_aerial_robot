@@ -173,7 +173,7 @@ Visualization Manager:
           Value: true
       Name: RobotModel
       Robot Description: robot_description
-      TF Prefix: ""
+      TF Prefix: orochi_hx
       Update Interval: 0
       Value: true
       Visual Enabled: true
