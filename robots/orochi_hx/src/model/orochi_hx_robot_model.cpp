@@ -6,8 +6,8 @@ OrochiHxRobotModel::OrochiHxRobotModel(bool init_with_rosparam, bool verbose, do
 {
   const int rotor_num = getRotorNum();
   links_rotation_from_cog_.resize(rotor_num);
-  current_joint_angles_.resize(getJointNum() - rotor_num);
-  current_gimbal_angles_.resize(rotor_num);
+  current_joint_angles_.resize(getJointNum() - rotor_num); // 15 - 4 = 11: male_roll x4, female_roll x4, joint_yaw x3
+  current_gimbal_angles_.resize(rotor_num); // gimbal_pitch x4
 }
 
 void OrochiHxRobotModel::updateRobotModelImpl(const KDL::JntArray& joint_positions)
@@ -27,19 +27,23 @@ void OrochiHxRobotModel::updateRobotModelImpl(const KDL::JntArray& joint_positio
     std::string s = std::to_string(i + 1);
 
     /* link */
-    KDL::Frame link_f = seg_tf_map.at("link" + s);
+    KDL::Frame link_f = seg_tf_map.at("body" + s);
     links_rotation_from_cog_.at(i) = (cog.Inverse() * link_f).M;
 
     /* get current gimbal angles */
-    current_gimbal_angles_.at(i) =
-        joint_positions(joint_index_map.find(std::string("gimbal") + std::to_string(i + 1))->second);
+    current_gimbal_angles_.at(i) = joint_positions(joint_index_map.at("gimbal_pitch" + s));
+
   }
 
-  /* get current joint angles */
-  for (int i = 0; i < getJointNum() - getRotorNum(); i++)
+  /* get current joint angles (all non-gimbal joints) */
+  const auto& joint_names = getJointNames();
+  const auto& joint_indices = getJointIndices();
+  int j = 0;
+  for (size_t k = 0; k < joint_names.size(); k++)
   {
-    current_joint_angles_.at(i) =
-        joint_positions(joint_index_map.find(std::string("joint") + std::to_string(i + 1))->second);
+    if (joint_names.at(k).find("gimbal") == 0) // rotor以外のjointからgimbalが入っている名前のjointを抜く
+      continue;
+    current_joint_angles_.at(j++) = joint_positions(joint_indices.at(k));
   }
 
   auto end = std::chrono::high_resolution_clock::now();
