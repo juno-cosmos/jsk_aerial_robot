@@ -88,13 +88,13 @@ void OrochiHxController::rosParamInit()
 
   /* get tilt angle of each thruster */
   auto urdf_model = robot_model_->getUrdfModel();
-  auto robot_model_xml = robot_model_->getRobotModelXml("robot_description");
+  // auto robot_model_xml = robot_model_->getRobotModelXml("robot_description");
   for (int i = 0; i < motor_num_; i++)
   {
-    std::string rotor_parent_joint_name = std::string("gimbal_link") + std::to_string(i + 1) + std::string("2") +
-                                          std::string("rotor_parent") +
-                                          std::to_string(i + 1);  // we assume gimbal_link*2_rotor_parent* exists
-    urdf::JointConstSharedPtr joint = urdf_model.getJoint(rotor_parent_joint_name);
+    std::string rotor_joint_name = std::string("rotor") + std::to_string(i + 1);
+    urdf::JointConstSharedPtr joint = urdf_model.getJoint(rotor_joint_name);
+    if (!joint)
+      throw std::runtime_error("[OrochiHxController] joint not found in urdf: " + rotor_joint_name);
     urdf::Pose origin = joint->parent_to_joint_origin_transform;
 
     double r, p, y;
