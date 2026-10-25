@@ -1,8 +1,6 @@
 #include <orochi_hx/model/orochi_hx_robot_model.h>
 
-OrochiHxRobotModel::OrochiHxRobotModel(bool init_with_rosparam, bool verbose, double fc_f_min_thre, double fc_t_min_thre,
-                                 double epsilon)
-  : RobotModel(init_with_rosparam, verbose, fc_f_min_thre, fc_t_min_thre, epsilon)
+OrochiHxRobotModel::OrochiHxRobotModel(bool init_with_rosparam, bool verbose, double fc_f_min_thre, double fc_t_min_thre, double epsilon) : RobotModel(init_with_rosparam, verbose, false /* non-fixed model*/, fc_f_min_thre, fc_t_min_thre, epsilon)
 {
   const int rotor_num = getRotorNum();
   links_rotation_from_cog_.resize(rotor_num);

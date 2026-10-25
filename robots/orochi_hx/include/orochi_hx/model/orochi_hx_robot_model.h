@@ -13,7 +13,8 @@
 
 using namespace aerial_robot_model;
 
-class OrochiHxRobotModel : public aerial_robot_model::transformable::RobotModel
+// class OrochiHxRobotModel : public aerial_robot_model::transformable::RobotModel // 関節トルクやヤコビアンを使った制御をしたくなったときに戻す or 自力実装
+class OrochiHxRobotModel : public aerial_robot_model::RobotModel
 {
 public:
   OrochiHxRobotModel(bool init_with_rosparam = true, bool verbose = false, double fc_f_min_thre = 0,
