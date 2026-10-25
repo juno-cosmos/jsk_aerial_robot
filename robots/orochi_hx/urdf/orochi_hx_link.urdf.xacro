@@ -163,11 +163,17 @@
           </geometry>
           <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
         </visual>
-        <collision>
+        <collision name="female${self}_pipe_collision">
           <geometry>
-            <mesh filename="package://orochi_hx/urdf/mesh/female_collision.stl"/>
+            <box size="0.079 0.02 0.02"/>
           </geometry>
-          <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
+          <origin xyz="0.05903 0 0" rpy="0.0 -0.0 0.0"/>
+        </collision>
+        <collision name="female${self}_leg_collision">
+          <geometry>
+            <box size="0.038 0.0525 0.07025"/>
+          </geometry>
+          <origin xyz="0.07803 0 -0.05012" rpy="0.0 -0.0 0.0"/>
         </collision>
       </xacro:unless>
     </link>
@@ -200,12 +206,12 @@
         </geometry>
         <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
       </visual>
-      <collision>
-        <geometry>
-          <mesh filename="package://orochi_hx/urdf/mesh/thrust_collision.stl"/>
-        </geometry>
-        <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
-      </collision>
+      <!-- <collision> -->
+      <!--   <geometry> -->
+      <!--     <mesh filename="package://orochi_hx/urdf/mesh/thrust_collision.stl"/> -->
+      <!--   </geometry> -->
+      <!--   <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/> -->
+      <!-- </collision> -->
     </link>
     <!-- <xacro:friction link="thrust${self}"/> -->
     <xacro:damping_factor link="thrust${self}"/>
