@@ -1,82 +1,93 @@
 servo_controller:
   # TODO paramsを合わせる必要あり
 
-  male_roll:
+  # servo_bridge only accepts the group names "joints" and "gimbals"
+  joints: # male_roll x4, female_roll x4, joint_yaw x3
+    # default values: overwritten by the same key in each controller
     angle_sgn: 1
     angle_scale: 0.00076699
     zero_point_offset: 2047
-    torque_scale: 0.03483 # convert to N*m
+    # NOTE: do not write torque_scale here. the group value has priority over the controller value in servo_bridge
 
     simulation:
       pid: {p: 50.0, i: 0.01, d: 2.0}
       init_value: 0.0
       type: effort_controllers/JointPositionController
 
+    # module 1
     controller1:
       id: 0
       name: male_roll1
+      torque_scale: 0.03483 # convert to N*m
     controller2:
-      id: 4
-      name: male_roll2
-    controller3:
-      id: 8
-      name: male_roll3
-    controller4:
-      id: 12
-      name: male_roll4
-
-  female_roll:
-    angle_sgn: 1
-    angle_scale: 0.00076699
-    zero_point_offset: 2047
-    torque_scale: 0.03483 # convert to N*m
-
-    simulation:
-      pid: {p: 50.0, i: 0.01, d: 2.0}
-      init_value: 0.0
-      type: effort_controllers/JointPositionController
-
-    controller1:
       id: 2
       name: female_roll1
-    controller2:
-      id: 6
-      name: female_roll2
+      torque_scale: 0.03483 # convert to N*m
     controller3:
-      id: 10
-      name: female_roll3
-    controller4:
-      id: 14
-      name: female_roll4
-
-  joint_yaw:
-    angle_sgn: 1
-    angle_scale: 0.00076699
-    zero_point_offset: 2047
-    torque_scale: 0.03483 # convert to N*m
-
-    simulation:
-      pid: {p: 50.0, i: 0.01, d: 2.0}
-      init_value: 0.0
-      type: effort_controllers/JointPositionController
-
-    controller1:
       id: 3
       name: joint_yaw1
+      angle_sgn: 1
+      angle_scale: 0.00076699
+      zero_point_offset: 2047
+      torque_scale: 0.03483 # convert to N*m
       simulation:
+        pid: {p: 50.0, i: 0.01, d: 2.0}
         init_value: 1.57
-    controller2:
+        type: effort_controllers/JointPositionController
+
+    # module 2
+    controller4:
+      id: 4
+      name: male_roll2
+      torque_scale: 0.03483 # convert to N*m
+    controller5:
+      id: 6
+      name: female_roll2
+      torque_scale: 0.03483 # convert to N*m
+    controller6:
       id: 7
       name: joint_yaw2
+      angle_sgn: 1
+      angle_scale: 0.00076699
+      zero_point_offset: 2047
+      torque_scale: 0.03483 # convert to N*m
       simulation:
+        pid: {p: 50.0, i: 0.01, d: 2.0}
         init_value: 1.57
-    controller3:
+        type: effort_controllers/JointPositionController
+
+    # module 3
+    controller7:
+      id: 8
+      name: male_roll3
+      torque_scale: 0.03483 # convert to N*m
+    controller8:
+      id: 10
+      name: female_roll3
+      torque_scale: 0.03483 # convert to N*m
+    controller9:
       id: 11
       name: joint_yaw3
+      angle_sgn: 1
+      angle_scale: 0.00076699
+      zero_point_offset: 2047
+      torque_scale: 0.03483 # convert to N*m
       simulation:
+        pid: {p: 50.0, i: 0.01, d: 2.0}
         init_value: 1.57
+        type: effort_controllers/JointPositionController
 
-  gimbal_pitch:
+    # module 4
+    controller10:
+      id: 12
+      name: male_roll4
+      torque_scale: 0.03483 # convert to N*m
+    controller11:
+      id: 14
+      name: female_roll4
+      torque_scale: 0.03483 # convert to N*m
+
+  gimbals: # gimbal_pitch x4
     no_real_state: false # true if there is no servo state from real machine
     # ctrl_pub_topic: hoge # other topic than the common one:  "servo/target_states", if necessary
 
