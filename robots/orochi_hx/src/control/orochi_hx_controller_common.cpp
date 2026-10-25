@@ -149,7 +149,7 @@ void OrochiHxController::processGimbalAngles()
   for (int i = 0; i < motor_num_; i++)
   {
     std::string s = std::to_string(i + 1);
-    gimbal_processed_joint(joint_index_map.find(std::string("gimbal") + s)->second) = current_gimbal_angles.at(i);
+    gimbal_processed_joint(joint_index_map.at(std::string("gimbal_pitch") + s)) = current_gimbal_angles.at(i);
   }
   robot_model_for_control_->updateRobotModel(gimbal_processed_joint);
 
