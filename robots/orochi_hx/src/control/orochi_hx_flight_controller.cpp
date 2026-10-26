@@ -90,7 +90,7 @@ void OrochiHxController::linearWrenchAllocation()
     lambda_all_.at(i) =
         std::clamp((float)full_lambda.segment(2 * i, 2).norm(), (float)robot_model_->getThrustLowerLimit(),
                    (float)robot_model_->getThrustUpperLimit());
-    target_gimbal_angles_.at(i) = angles::normalize_angle(atan2(-full_lambda(2 * i + 0), full_lambda(2 * i + 1)));
+    target_gimbal_angles_.at(i) = angles::normalize_angle(atan2(full_lambda(2 * i + 0), full_lambda(2 * i + 1))); // atan2(lambda_xi, lambda_zi)
   }
 }
 

@@ -74,8 +74,10 @@ Eigen::MatrixXd OrochiHxRobotModel::getFullWrenchAllocationMatrixFromCog()
 
   /* calculate masked and integrated rotaion matrix */
   Eigen::MatrixXd integrated_rot = Eigen::MatrixXd::Zero(3 * rotor_num, 2 * rotor_num);
-  Eigen::MatrixXd mask(3, 2);  // y and z axis
-  mask << 0, 0, 1, 0, 0, 1;
+  Eigen::MatrixXd mask(3, 2);  // x and z axis
+  mask << 1, 0,
+          0, 0,
+          0, 1;
   for (int i = 0; i < rotor_num; i++)
   {
     integrated_rot.block(3 * i, 2 * i, 3, 2) = kdlToEigen(links_rotation_from_cog_.at(i)) * mask;

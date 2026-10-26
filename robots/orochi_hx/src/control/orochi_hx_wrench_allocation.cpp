@@ -70,9 +70,8 @@ void nonlinearWrenchAllocationEqConstraints(unsigned m, double* result, unsigned
   Eigen::MatrixXd Q = Eigen::MatrixXd::Zero(6, motor_num);
   for (int i = 0; i < motor_num; i++)
   {
-    Eigen::Vector3d u_Li;
-    u_Li << sin(rotor_tilt.at(i)), -sin(x[i + motor_num]) * cos(rotor_tilt.at(i)),
-        cos(x[i + motor_num]) * cos(rotor_tilt.at(i));
+    Eigen::Vector3d u_Li; // Link i についている 推力方向ベクトル
+    u_Li << sin(x[i + motor_num] + rotor_tilt.at(i)), 0, cos(x[i + motor_num] + rotor_tilt.at(i));
 
     // cog_u_Li = cog_R_Li * u_Li
     Q.block(0, i, 3, 1) = links_rotation_from_cog.at(i) * u_Li;
@@ -104,7 +103,7 @@ void nonlinearWrenchAllocationEqConstraints(unsigned m, double* result, unsigned
   for (int i = 0; i < motor_num; i++)
   {
     Eigen::Vector3d du_Li_dphi;
-    du_Li_dphi << 0, -cos(x[i + motor_num]) * cos(rotor_tilt.at(i)), -sin(x[i + motor_num]) * cos(rotor_tilt.at(i));
+    du_Li_dphi << cos(x[i + motor_num] + rotor_tilt.at(i)), 0, -sin(x[i + motor_num] + rotor_tilt.at(i));
 
     df_dphi.block(0, i, 3, 1) = links_rotation_from_cog.at(i) * du_Li_dphi * x[i];
     dtau_dphi.block(0, i, 3, 1) = (aerial_robot_model::skew(rotors_origin_from_cog.at(i)) +
