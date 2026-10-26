@@ -10,7 +10,7 @@ servo_controller:
     # NOTE: do not write torque_scale here. the group value has priority over the controller value in servo_bridge
 
     simulation:
-      pid: {p: 50.0, i: 0.01, d: 2.0}
+      pid: {p: 50.0, i: 0.01, d: 2.0, i_clamp_min: -4.1, i_clamp_max: 4.1}
       init_value: 0.0
       type: effort_controllers/JointPositionController
 
@@ -31,7 +31,7 @@ servo_controller:
       zero_point_offset: 2047
       torque_scale: 0.03483 # convert to N*m
       simulation:
-        pid: {p: 50.0, i: 0.01, d: 2.0}
+        pid: {p: 50.0, i: 0.01, d: 2.0, i_clamp_min: -8.0, i_clamp_max: 8.0}
         init_value: 1.57
         type: effort_controllers/JointPositionController
 
@@ -52,7 +52,7 @@ servo_controller:
       zero_point_offset: 2047
       torque_scale: 0.03483 # convert to N*m
       simulation:
-        pid: {p: 50.0, i: 0.01, d: 2.0}
+        pid: {p: 50.0, i: 0.01, d: 2.0, i_clamp_min: -8.0, i_clamp_max: 8.0}
         init_value: 1.57
         type: effort_controllers/JointPositionController
 
@@ -73,7 +73,7 @@ servo_controller:
       zero_point_offset: 2047
       torque_scale: 0.03483 # convert to N*m
       simulation:
-        pid: {p: 50.0, i: 0.01, d: 2.0}
+        pid: {p: 50.0, i: 0.01, d: 2.0, i_clamp_min: -8.0, i_clamp_max: 8.0}
         init_value: 1.57
         type: effort_controllers/JointPositionController
 
@@ -96,7 +96,7 @@ servo_controller:
     zero_point_offset: 2047
 
     simulation:
-      pid: {p: 50.0, i: 0.01, d: 1.0, i_clamp_min: -3.0, i_clamp_max: 3.0}
+      pid: {p: 50.0, i: 0.01, d: 1.0, i_clamp_min: -1.5, i_clamp_max: 1.5}
       init_value: 0.0
       type: effort_controllers/JointPositionController
 
