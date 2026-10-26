@@ -23,5 +23,7 @@ rosbag record -o "${LOG_DIR}/${NAME}" \
   /${NS}/motor_pwms \
   /${NS}/rpy/pid \
   /${NS}/rpy/feedback_state \
+  # /${NS}/ground_truth \
   /tf /tf_static \
+  # /gazebo/link_states \
   ${@:3}

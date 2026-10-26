@@ -19,6 +19,8 @@ servo_controller:
       id: 0
       name: male_roll1
       torque_scale: 0.03483 # convert to N*m
+      simulation:   # end link (male1) is very light: keep d*dt/I < 2
+        pid: {p: 50.0, i: 0.01, d: 0.1, i_clamp_min: -4.1, i_clamp_max: 4.1}
     controller2:
       id: 2
       name: female_roll1
@@ -86,6 +88,8 @@ servo_controller:
       id: 14
       name: female_roll4
       torque_scale: 0.03483 # convert to N*m
+      simulation:   # end link (female4) is very light: keep d*dt/I < 2
+        pid: {p: 50.0, i: 0.01, d: 0.1, i_clamp_min: -4.1, i_clamp_max: 4.1}
 
   gimbals: # gimbal_pitch x4
     no_real_state: false # true if there is no servo state from real machine
