@@ -287,7 +287,7 @@
     </joint>
     <xacro:implicit_damper joint="female_roll${self}"/>
     <xacro:unless value="${self == links}">
-      <joint name="joint_yaw${self}" type="continuous">
+      <joint name="joint_yaw${self}" type="revolute">
         <limit effort="10.0" lower="${-pi/2}" upper="${pi/2}" velocity="0.5"/>
         <!-- <limit effort="10.0" lower="${-pi/2}" upper="${pi/2}" velocity="0.1"/> -->
         <!-- <limit effort="8.2" lower="${-pi/2}" upper="${pi/2}" velocity="1.20"/> -->
