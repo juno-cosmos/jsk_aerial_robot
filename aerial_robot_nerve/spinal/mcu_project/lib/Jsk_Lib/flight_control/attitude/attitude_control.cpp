@@ -519,8 +519,7 @@ void AttitudeController::fourAxisCommandCallback( const spinal::FourAxisCommand 
 #ifndef SIMULATION
   /* mutex to protect the completion of following update  */
   if(mutex_ != NULL) osMutexWait(*mutex_, osWaitForever);
-#else
-  /* mutex to protect the completion of following update  */
+#else // SIMULATION
   std::lock_guard<std::mutex> lock(sim_mutex_);
 #endif
 
@@ -605,8 +604,7 @@ void AttitudeController::rpyGainCallback( const spinal::RollPitchYawTerms &gain_
 #ifndef SIMULATION
   /* mutex to protect the completion of following update  */
   if(mutex_ != NULL) osMutexWait(*mutex_, osWaitForever);
-#else
-  /* mutex to protect the completion of following update  */
+#else // SIMULATION
   std::lock_guard<std::mutex> lock(sim_mutex_);
 #endif
 
@@ -668,8 +666,7 @@ void AttitudeController::torqueAllocationMatrixInvCallback(const spinal::TorqueA
 #ifndef SIMULATION
   /* mutex to protect the completion of following update  */
   if(mutex_ != NULL) osMutexWait(*mutex_, osWaitForever);
-#else
-  /* mutex to protect the completion of following update  */
+#else // SIMULATION
   std::lock_guard<std::mutex> lock(sim_mutex_);
 #endif
 
