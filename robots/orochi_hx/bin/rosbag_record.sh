@@ -20,5 +20,8 @@ rosbag record -o "${LOG_DIR}/${NAME}" \
   /${NS}/debug/nlopt_result \
   /${NS}/debug/nlopt_log \
   /${NS}/flight_state \
+  /${NS}/motor_pwms \
+  /${NS}/rpy/pid \
+  /${NS}/rpy/feedback_state \
   /tf /tf_static \
   ${@:3}
