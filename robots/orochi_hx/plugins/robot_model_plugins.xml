@@ -2,4 +2,7 @@
   <class name="orochi_hx_robot_model" type="OrochiHxRobotModel" base_class_type="aerial_robot_model::RobotModel">
     <description>plugin for orochi_hx robot model </description>
   </class>
+  <class name="orochi_hx_full_vectoring_robot_model" type="OrochiHxFullVectoringRobotModel" base_class_type="aerial_robot_model::RobotModel">
+    <description>plugin for orochi_hx full vectoring robot model (2DoF joint, 2DoF gimbal)</description>
+  </class>
 </library>

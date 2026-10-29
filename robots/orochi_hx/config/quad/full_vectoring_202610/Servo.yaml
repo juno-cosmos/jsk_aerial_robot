@@ -1,0 +1,115 @@
+servo_controller:
+  # full vectoring mode (see manual_for_full_vectoring.md)
+  #   joints : psi^j (joint_yaw), commanded via "joints_ctrl"
+  #   gimbals: th^g (gimbal_pitch), phi^f (female_roll), phi^m (male_roll), commanded by the controller via "gimbals_ctrl"
+  # servo_bridge only accepts the group names "joints" and "gimbals"
+
+  joints: # joint_yaw x3
+    angle_sgn: 1
+    angle_scale: 0.00076699
+    zero_point_offset: 2047
+    torque_scale: 0.03483 # convert to N*m
+
+    simulation:
+      pid: {p: 50.0, i: 0.01, d: 2.0, i_clamp_min: -8.0, i_clamp_max: 8.0}
+      init_value: 1.57
+      type: effort_controllers/JointPositionController
+
+    controller1:
+      id: 3
+      name: joint_yaw1
+    controller2:
+      id: 7
+      name: joint_yaw2
+    controller3:
+      id: 11
+      name: joint_yaw3
+
+  gimbals: # gimbal_pitch x4, female_roll x4, male_roll x4
+    no_real_state: false # true if there is no servo state from real machine
+    # default values for gimbal_pitch: overwritten by the same key in each controller
+    angle_sgn: 1
+    angle_scale: 0.001534
+    zero_point_offset: 2047
+    # NOTE: do not write torque_scale here. the group value has priority over the controller value in servo_bridge
+
+    simulation:
+      pid: {p: 50.0, i: 0.01, d: 1.0, i_clamp_min: -1.5, i_clamp_max: 1.5}
+      init_value: 0.0
+      type: effort_controllers/JointPositionController
+
+    # module 1
+    controller1:
+      id: 0
+      name: male_roll1
+      angle_scale: 0.00076699
+      torque_scale: 0.03483 # convert to N*m
+      simulation:   # end link (male1) is very light: keep d*dt/I < 2
+        pid: {p: 50.0, i: 0.01, d: 0.1, i_clamp_min: -4.1, i_clamp_max: 4.1}
+    controller2:
+      id: 1
+      name: gimbal_pitch1
+    controller3:
+      id: 2
+      name: female_roll1
+      angle_scale: 0.00076699
+      torque_scale: 0.03483 # convert to N*m
+      simulation:
+        pid: {p: 50.0, i: 0.01, d: 2.0, i_clamp_min: -4.1, i_clamp_max: 4.1}
+
+    # module 2
+    controller4:
+      id: 4
+      name: male_roll2
+      angle_scale: 0.00076699
+      torque_scale: 0.03483 # convert to N*m
+      simulation:
+        pid: {p: 50.0, i: 0.01, d: 2.0, i_clamp_min: -4.1, i_clamp_max: 4.1}
+    controller5:
+      id: 5
+      name: gimbal_pitch2
+    controller6:
+      id: 6
+      name: female_roll2
+      angle_scale: 0.00076699
+      torque_scale: 0.03483 # convert to N*m
+      simulation:
+        pid: {p: 50.0, i: 0.01, d: 2.0, i_clamp_min: -4.1, i_clamp_max: 4.1}
+
+    # module 3
+    controller7:
+      id: 8
+      name: male_roll3
+      angle_scale: 0.00076699
+      torque_scale: 0.03483 # convert to N*m
+      simulation:
+        pid: {p: 50.0, i: 0.01, d: 2.0, i_clamp_min: -4.1, i_clamp_max: 4.1}
+    controller8:
+      id: 9
+      name: gimbal_pitch3
+    controller9:
+      id: 10
+      name: female_roll3
+      angle_scale: 0.00076699
+      torque_scale: 0.03483 # convert to N*m
+      simulation:
+        pid: {p: 50.0, i: 0.01, d: 2.0, i_clamp_min: -4.1, i_clamp_max: 4.1}
+
+    # module 4
+    controller10:
+      id: 12
+      name: male_roll4
+      angle_scale: 0.00076699
+      torque_scale: 0.03483 # convert to N*m
+      simulation:
+        pid: {p: 50.0, i: 0.01, d: 2.0, i_clamp_min: -4.1, i_clamp_max: 4.1}
+    controller11:
+      id: 13
+      name: gimbal_pitch4
+    controller12:
+      id: 14
+      name: female_roll4
+      angle_scale: 0.00076699
+      torque_scale: 0.03483 # convert to N*m
+      simulation:   # end link (female4) is very light: keep d*dt/I < 2
+        pid: {p: 50.0, i: 0.01, d: 0.1, i_clamp_min: -4.1, i_clamp_max: 4.1}

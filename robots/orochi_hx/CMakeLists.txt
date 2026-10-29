@@ -38,13 +38,16 @@ include_directories(
   ${OsqpEigen_INCLUDE_DIRS}
   )
 
-add_library(orochi_hx_robot_model src/model/orochi_hx_robot_model.cpp)
+add_library(orochi_hx_robot_model
+  src/model/orochi_hx_robot_model.cpp
+  src/model/orochi_hx_full_vectoring_robot_model.cpp)
 target_link_libraries(orochi_hx_robot_model ${catkin_LIBRARIES})
 
 add_library(orochi_hx_controller
   src/control/orochi_hx_controller_common.cpp
   src/control/orochi_hx_flight_controller.cpp
-  src/control/orochi_hx_wrench_allocation.cpp)
+  src/control/orochi_hx_wrench_allocation.cpp
+  src/control/orochi_hx_full_vectoring_controller.cpp)
 target_link_libraries(orochi_hx_controller
   orochi_hx_robot_model
   ${catkin_LIBRARIES}

@@ -1,0 +1,53 @@
+aerial_robot_control_name: aerial_robot_control/orochi_hx_full_vectoring_controller
+# full vectoring mode (see manual_for_full_vectoring.md)
+
+controller:
+  xy:
+    p_gain: 2.3
+    i_gain: 0.02
+    d_gain: 4.0
+    limit_sum: 3
+    limit_p: 3
+    limit_i: 1.5
+    limit_d: 3
+
+  z:
+    p_gain: 3.6
+    i_gain: 1.55
+    d_gain: 3.4
+    limit_err_p: 1.0
+    limit_sum: 16.5 # N for clamping thrust force
+    limit_p: 10 # m / s^2
+    limit_i: 15 # m / s^2
+    limit_d: 10 # m / s^2
+    landing_err_z: -0.55
+    force_landing_descending_rate: -0.6
+
+  roll_pitch:
+    p_gain: 25.0
+    i_gain: 1.0
+    d_gain: 8.0
+    limit_sum: 20.0
+    limit_p: 20.0
+    limit_i: 20.0
+    limit_d: 20.0
+    start_rp_integration_height: 0.01
+
+  yaw:
+    p_gain: 8.0
+    i_gain: 1.0
+    d_gain: 4.0
+    limit_sum: 6.0
+    limit_p: 4.0
+    limit_i: 4.0
+    limit_d: 4.0
+    limit_err_p: 0.4
+    need_d_control: false
+
+  # full vectoring
+  use_fc_for_att_control: true
+  torque_allocation_matrix_inv_pub_interval: 0.05
+  init_joint_roll: [0.0, 0.0, 0.0, 0.0] # phi_j (= male_roll + female_roll) of each module [rad], changed by "joint_roll_ctrl"
+  # baselink (fc) rotation by "final_target_baselink_rpy" (rotateCog() in robot_interface.py)
+  baselink_rot_change_thresh: 0.02 # max change in each update [rad]
+  baselink_rot_pub_interval: 0.1 # update interval [sec]

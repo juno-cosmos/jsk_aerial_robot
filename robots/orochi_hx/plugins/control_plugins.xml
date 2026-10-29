@@ -2,4 +2,7 @@
   <class name="aerial_robot_control/orochi_hx_controller" type="aerial_robot_control::OrochiHxController" base_class_type="aerial_robot_control::ControlBase">
     <description>Controller for orochi_hx</description>
   </class>
+  <class name="aerial_robot_control/orochi_hx_full_vectoring_controller" type="aerial_robot_control::OrochiHxFullVectoringController" base_class_type="aerial_robot_control::ControlBase">
+    <description>Full vectoring controller for orochi_hx (2DoF joint, 2DoF gimbal)</description>
+  </class>
 </library>
